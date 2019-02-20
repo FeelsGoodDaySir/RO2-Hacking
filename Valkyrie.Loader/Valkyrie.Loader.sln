@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Valkyrie.Loader", "Valkyrie.Loader\Valkyrie.Loader.csproj", "{3E554664-EDDB-441D-85F7-F426F0DD325B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E554664-EDDB-441D-85F7-F426F0DD325B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E554664-EDDB-441D-85F7-F426F0DD325B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E554664-EDDB-441D-85F7-F426F0DD325B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E554664-EDDB-441D-85F7-F426F0DD325B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18D2C542-21EB-4ECB-8DEB-3F356CB6C546}
+	EndGlobalSection
+EndGlobal

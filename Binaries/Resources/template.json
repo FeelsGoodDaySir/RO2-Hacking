@@ -1,0 +1,1021 @@
+[
+  {
+    "Id": 1101,
+    "Name": "Mt. Mjolnir",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 1102,
+    "Name": "Cave of Riddles",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 1121,
+    "Name": "Yggdrasil Garden",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 1122,
+    "Name": "Forgotten Mine",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 4105,
+    "Name": "Trauma",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 1103,
+    "Name": "Haven of Valkyrie",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 410102,
+    "Name": "Culvert (N)",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 410103,
+    "Name": "Culvert (H)",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 410202,
+    "Name": "Garden of Baphomet (N)",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 410203,
+    "Name": "Garden of Baphomet (H)",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 1104,
+    "Name": "Awareness of the Wizard",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 1109,
+    "Name": "Sanctuary of Trials",
+    "Zone": "Mt. Mjolnir Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 1100,
+    "Name": "Prontera",
+    "Zone": "Prontera Zone",
+    "Category": "Field",
+    "Places": [
+      {
+        "name": "Auction House",
+        "coordinates": [
+          4.222292,
+          4.201731,
+          3.187232
+        ]
+      },
+      {
+        "name": "South Warp",
+        "coordinates": [
+          4.03442,
+          4.251757,
+          3.118726
+        ]
+      },
+      {
+        "name": "North Warp",
+        "coordinates": [
+          4.463529,
+          4.250669,
+          3.118726
+        ]
+      },
+      {
+        "name": "Long Range Flying",
+        "coordinates": [
+          4.24882,
+          4.281696,
+          3.201426
+        ]
+      },
+      {
+        "name": "Santa",
+        "coordinates": [
+          4.27966356,
+          4.239439,
+          3.189321
+        ]
+      },
+      {
+        "name": "Yggdrasil Store",
+        "coordinates": [
+          4.20624,
+          4.247777,
+          3.18971825
+        ]
+      },
+      {
+        "name": "Artisan Expert",
+        "coordinates": [
+          4.04424047,
+          4.312376,
+          3.11596465
+        ]
+      },
+      {
+        "name": "Fallen Fortress NPC",
+        "coordinates": [
+          4.19776,
+          4.07935,
+          3.260095
+        ]
+      },
+      {
+        "name": "Colosseum Gear NPC",
+        "coordinates": [
+          4.17008066,
+          4.050609,
+          3.265251
+        ]
+      },
+      {
+        "name": "Guild Manager NPC",
+        "coordinates": [
+          4.35319948,
+          4.27870274,
+          3.18932128
+        ]
+      },
+      {
+        "name": "Arena / PVP NPC",
+        "coordinates": [
+          4.161177,
+          4.539971,
+          3.069799
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 1111,
+    "Name": "South/Izlude/Payon",
+    "Zone": "Prontera Zone",
+    "Category": "Field",
+    "Places": [
+      {
+        "name": "Wolves Cave Warp",
+        "coordinates": [
+          4.464471,
+          4.061705,
+          3.137251
+        ]
+      },
+      {
+        "name": "Prontera Warp",
+        "coordinates": [
+          4.845276,
+          4.144702,
+          3.28357983
+        ]
+      },
+      {
+        "name": "Izlude Town",
+        "coordinates": [
+          4.61279154,
+          4.744709,
+          3.44662952
+        ]
+      },
+      {
+        "name": "Temple Sea God Warp",
+        "coordinates": [
+          4.87938547,
+          4.70787573,
+          2.95608115
+        ]
+      },
+      {
+        "name": "Vador spot",
+        "coordinates": [
+          4.82944775,
+          4.780586,
+          2.96532965
+        ]
+      },
+      {
+        "name": "Izlude dungeon",
+        "coordinates": [
+          4.88094425,
+          4.93276644,
+          3.56542969
+        ]
+      },
+      {
+        "name": "Mermaid spot",
+        "coordinates": [
+          4.932102,
+          4.62430429,
+          2.998054
+        ]
+      },
+      {
+        "name": "Payon dungeon",
+        "coordinates": [
+          3.45268869,
+          4.86869574,
+          3.06001949
+        ]
+      },
+      {
+        "name": "Forgotten Payon warp",
+        "coordinates": [
+          3.576795,
+          4.92315435,
+          3.107606
+        ]
+      },
+      {
+        "name": "Jehoon",
+        "coordinates": [
+          4.36824274,
+          4.54559326,
+          3.33123255
+        ]
+      },
+      {
+        "name": "Dimensional Crack",
+        "coordinates": [
+          3.89414573,
+          4.727945,
+          3.23278522
+        ]
+      },
+      {
+        "name": "Maple Forest",
+        "coordinates": [
+          3.38083482,
+          4.71876669,
+          3.18550467
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 1113,
+    "Name": "Fallen Fortress",
+    "Zone": "Prontera Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 4151,
+    "Name": "Forgotten Payon",
+    "Zone": "Prontera Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 412102,
+    "Name": "Wolves Cave (N)",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 412103,
+    "Name": "Wolves Cave (H)",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 413102,
+    "Name": "Izlude Cave (N)",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 413103,
+    "Name": "Izlude Cave (H)",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 413202,
+    "Name": "Temple of Sea God (N)",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 413203,
+    "Name": "Temple of Sea God (H)",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 411102,
+    "Name": "Secret Forest Tomb",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 411103,
+    "Name": "Secret Forest Tomb (H)",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 4141,
+    "Name": "Arrogance's Vanaheim",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 410302,
+    "Name": "Arena (N)",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 410303,
+    "Name": "Arena (H)",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 4112,
+    "Name": "Chaos Dungeon",
+    "Zone": "Prontera Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 1200,
+    "Name": "Alberta",
+    "Zone": "Alberta Zone",
+    "Category": "Field",
+    "Places": [
+      {
+        "name": "Jawaii portal",
+        "coordinates": [
+          3.862161,
+          4.24964,
+          3.104362
+        ]
+      },
+      {
+        "name": "Beach",
+        "coordinates": [
+          3.912596,
+          4.373425,
+          3.077709
+        ]
+      },
+      {
+        "name": "Auction House",
+        "coordinates": [
+          4.013584,
+          4.159977,
+          3.186879
+        ]
+      },
+      {
+        "name": "Long Range Flying",
+        "coordinates": [
+          4.035408,
+          4.211318,
+          3.186878
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 1201,
+    "Name": "Maple/Divided",
+    "Zone": "Alberta Zone",
+    "Category": "Field",
+    "Places": [
+      {
+        "name": "Payon",
+        "coordinates": [
+          4.97454357,
+          3.92815042,
+          2.97812
+        ]
+      },
+      {
+        "name": "Maple Town",
+        "coordinates": [
+          4.781771,
+          3.93068361,
+          2.775587
+        ]
+      },
+      {
+        "name": "Dimensional Crack",
+        "coordinates": [
+          4.64299965,
+          3.83172059,
+          3.10785532
+        ]
+      },
+      {
+        "name": "Abandoned Lab",
+        "coordinates": [
+          4.62151861,
+          3.679062,
+          3.06708455
+        ]
+      },
+      {
+        "name": "Southern Gateway",
+        "coordinates": [
+          4.61452341,
+          4.22320557,
+          2.97737145
+        ]
+      },
+      {
+        "name": "Fountain Town",
+        "coordinates": [
+          3.99673033,
+          4.02737331,
+          3.274176
+        ]
+      },
+      {
+        "name": "Hunter Union",
+        "coordinates": [
+          4.003199,
+          3.95588374,
+          3.19593453
+        ]
+      },
+      {
+        "name": "Leafcat spot",
+        "coordinates": [
+          4.305767,
+          3.677163,
+          3.0474894
+        ]
+      },
+      {
+        "name": "Peak of Dawn",
+        "coordinates": [
+          3.87016249,
+          4.047927,
+          3.06785965
+        ]
+      },
+      {
+        "name": "Scar of Despair",
+        "coordinates": [
+          3.85351563,
+          4.09375,
+          3.00674343
+        ]
+      },
+      {
+        "name": "Abaddon of Despair",
+        "coordinates": [
+          4.237099,
+          4.37056446,
+          1.91994607
+        ]
+      },
+      {
+        "name": "Hell of Deadly Poison",
+        "coordinates": [
+          3.84189129,
+          3.6409142,
+          2.46993232
+        ]
+      },
+      {
+        "name": "Alberta east",
+        "coordinates": [
+          3.439625,
+          4.214249,
+          3.03281116
+        ]
+      },
+      {
+        "name": "Alberta west",
+        "coordinates": [
+          3.48811936,
+          3.70855832,
+          2.97812
+        ]
+      },
+      {
+        "name": "Verta Delta",
+        "coordinates": [
+          3.78710938,
+          3.35742188,
+          2.93875432
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 1221,
+    "Name": "Jawaii Love Island",
+    "Zone": "Alberta Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 1115,
+    "Name": "Jawaii Ocean Island",
+    "Zone": "Alberta Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 4142,
+    "Name": "Fury's Vanaheim",
+    "Zone": "Alberta Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 420102,
+    "Name": "Abandoned Lab (N)",
+    "Zone": "Alberta Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 420103,
+    "Name": "Abandoned Lab (H)",
+    "Zone": "Alberta Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 421102,
+    "Name": "Hell of Deadly Poison (N)",
+    "Zone": "Alberta Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 421103,
+    "Name": "Hell of Deadly Poison (H)",
+    "Zone": "Alberta Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 421202,
+    "Name": "Abaddon of Despair (N)",
+    "Zone": "Alberta Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 421203,
+    "Name": "Abaddon of Despair (H)",
+    "Zone": "Alberta Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 426101,
+    "Name": "Jawaii Wonderland (E)",
+    "Zone": "Alberta Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 426102,
+    "Name": "Jawaii Wonderland (N)",
+    "Zone": "Alberta Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 426103,
+    "Name": "Jawaii Wonderland (H)",
+    "Zone": "Alberta Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 1300,
+    "Name": "Morroc",
+    "Zone": "Morroc Zone",
+    "Category": "Field",
+    "Places": [
+      {
+        "name": "Auction House",
+        "coordinates": [
+          3.826586,
+          3.936285,
+          2.658784
+        ]
+      },
+      {
+        "name": "Long Range Flying",
+        "coordinates": [
+          3.662185,
+          3.935916,
+          2.658784
+        ]
+      },
+      {
+        "name": "Tomb of Osiris Warp",
+        "coordinates": [
+          3.953375,
+          3.320282,
+          3.105315
+        ]
+      },
+      {
+        "name": "D.Whisper Lower Fl Warp",
+        "coordinates": [
+          3.881971,
+          3.259961,
+          2.982008
+        ]
+      },
+      {
+        "name": "Dayr Desert Warp",
+        "coordinates": [
+          3.916207,
+          3.801346,
+          2.661271
+        ]
+      },
+      {
+        "name": "Road of Blessed",
+        "coordinates": [
+          3.767454,
+          3.964535,
+          2.661271
+        ]
+      },
+      {
+        "name": "Morroc Fortress entrance",
+        "coordinates": [
+          3.537657,
+          3.847944,
+          2.658784
+        ]
+      },
+      {
+        "name": "Obelstein NPC",
+        "coordinates": [
+          3.738701,
+          3.528729,
+          2.758725
+        ]
+      },
+      {
+        "name": "Assassin Zone",
+        "coordinates": [
+          3.290006,
+          3.66898251,
+          2.509802
+        ]
+      },
+      {
+        "name": "Morroc Castle",
+        "coordinates": [
+          3.766619,
+          3.79296851,
+          3.063219
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 422102,
+    "Name": "Cursed Ghost Ship (N)",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 422103,
+    "Name": "Cursed Ghost Ship (H)",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 423102,
+    "Name": "Fortress of Sandstorm (N)",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 423103,
+    "Name": "Fortress of Sandstorm (H)",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 424102,
+    "Name": "Fortress of Sandarman (N)",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 424103,
+    "Name": "Fortress of Sandarman (H)",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 425102,
+    "Name": "Culvert of Abyss (N)",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 425103,
+    "Name": "Culvert of Abyss (H)",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 4301,
+    "Name": "Tomb of Osiris",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 4304,
+    "Name": "Himmelmez's Chamber",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 4308,
+    "Name": "Silent Corridor",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 4309,
+    "Name": "Assassin's sanctum",
+    "Zone": "Morroc Zone",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 1211,
+    "Name": "Verta/Sograt/Road",
+    "Zone": "Morroc Zone",
+    "Category": "Field",
+    "Places": [
+      {
+        "name": "Divided Plain",
+        "coordinates": [
+          4.59960938,
+          4.845703,
+          3.2757585
+        ]
+      },
+      {
+        "name": "Delta Town",
+        "coordinates": [
+          4.47941065,
+          4.816834,
+          3.184624
+        ]
+      },
+      {
+        "name": "Coco Beach",
+        "coordinates": [
+          4.09978628,
+          4.80667734,
+          2.89991641
+        ]
+      },
+      {
+        "name": "Drake dungeon",
+        "coordinates": [
+          4.09226131,
+          4.828209,
+          2.82026815
+        ]
+      },
+      {
+        "name": "Shipwreck",
+        "coordinates": [
+          3.94968677,
+          4.70868063,
+          2.81343222
+        ]
+      },
+      {
+        "name": "Culvert of Abyss",
+        "coordinates": [
+          4.50466728,
+          4.68085432,
+          3.006749
+        ]
+      },
+      {
+        "name": "Tower of Babel",
+        "coordinates": [
+          4.62252331,
+          4.698728,
+          3.77538347
+        ]
+      },
+      {
+        "name": "Ghost ship",
+        "coordinates": [
+          3.68637538,
+          4.86444235,
+          3.09681225
+        ]
+      },
+      {
+        "name": "Broken bridge",
+        "coordinates": [
+          3.47464085,
+          4.63330746,
+          3.5191865
+        ]
+      }
+    ]
+  },
+  {
+    "Id": 1301,
+    "Name": "Dayr Desert",
+    "Zone": "Morroc Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 1302,
+    "Name": "Dayr 1st Temple",
+    "Zone": "Morroc Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 1303,
+    "Name": "Dayr 2nd Temple",
+    "Zone": "Morroc Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 1304,
+    "Name": "Dayr 3rd Temple",
+    "Zone": "Morroc Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 4302,
+    "Name": "Darkwhisper Lower Fl.",
+    "Zone": "Morroc Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 4303,
+    "Name": "Darkwhisper Upper Fl.",
+    "Zone": "Morroc Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 9103,
+    "Name": "Greedy Mine",
+    "Zone": "Special Area",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 410104,
+    "Name": "Ep.1 The First Mission",
+    "Zone": "Special Area",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 412104,
+    "Name": "Ep.2 Hidden Report",
+    "Zone": "Special Area",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 421104,
+    "Name": "Ep.3 Reidin Kerse",
+    "Zone": "Special Area",
+    "Category": "Dungeon",
+    "Places": []
+  },
+  {
+    "Id": 3101,
+    "Name": "Prontera Battlefield",
+    "Zone": "Special Area",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 3201,
+    "Name": "Morroc Fortress",
+    "Zone": "Special Area",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 4110,
+    "Name": "Master Jehoon's site",
+    "Zone": "Special Area",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 4116,
+    "Name": "Master Colosseum",
+    "Zone": "Special Area",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 4104,
+    "Name": "PvP Arena",
+    "Zone": "Special Area",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 4109,
+    "Name": "Colosseum",
+    "Zone": "Special Area",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 9104,
+    "Name": "Santa Poring's Room",
+    "Zone": "Special Area",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 4107,
+    "Name": "Holiday Town",
+    "Zone": "Niflheim Zone",
+    "Category": "Field",
+    "Places": []
+  },
+  {
+    "Id": 4106,
+    "Name": "Outskirts of Holiday Town",
+    "Zone": "Niflheim Zone",
+    "Category": "Field",
+    "Places": []
+  }
+]
