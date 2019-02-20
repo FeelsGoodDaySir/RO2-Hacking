@@ -4,6 +4,9 @@ WarpPortal stopped the development of this game, so I am publishing my entire RO
 
 This repository is a solid ground to start a Ragnarok Online 2 hack.
 
+Prerequisites:
+[.NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net471)
+
 # Valkyrie.Core
 
 The Core interacts with the Ragnarok Online 2 client and provide the cheats.
