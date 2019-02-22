@@ -2,7 +2,13 @@
 
 namespace Valkyrie.Core
 {
-    public struct Map
+    public class Place
+    {
+        public string Name { get; set; }
+        public float[] Coordinates { get; set; }
+    }
+
+    public class Map
     {
         public int Id { get; set; }
         public string Name { get; set; }
