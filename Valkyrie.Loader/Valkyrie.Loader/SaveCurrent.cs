@@ -43,14 +43,14 @@ namespace Valkyrie.Loader
                 return;
             }
 
-            if (map.Places.FindIndex(i => i.name == nameBox.Text) > -1)
+            if (map.Places.FindIndex(p => p.Name == nameBox.Text) > -1)
             {
                 if (MessageBox.Show("A place with the same name already exists, do you want to replace it?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) != DialogResult.OK)
                 {
                     return;
                 }
 
-                var place = map.Places.Find(p => p.name == nameBox.Text);
+                var place = map.Places.Find(p => p.Name == nameBox.Text);
                 var index = map.Places.IndexOf(place);
 
                 if (index == -1)
@@ -61,8 +61,8 @@ namespace Valkyrie.Loader
 
                 Place newPlace = new Place()
                 {
-                    name = nameBox.Text,
-                    coordinates = coordinates
+                    Name = nameBox.Text,
+                    Coordinates = coordinates
                 };
 
                 map.Places[index] = newPlace;
@@ -72,8 +72,8 @@ namespace Valkyrie.Loader
                 // Add the new place to the map list
                 map.Places.Add(new Place
                 {
-                    name = nameBox.Text,
-                    coordinates = coordinates
+                    Name = nameBox.Text,
+                    Coordinates = coordinates
                 });
             }
 

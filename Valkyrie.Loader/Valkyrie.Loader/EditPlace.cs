@@ -72,7 +72,7 @@ namespace Valkyrie.Loader
 
             float[] coordinates = { (float)corXBox.Value, (float)corYBox.Value, (float)corZBox.Value };
             var map = maps.FirstOrDefault(x => x.Id == _mapId);
-            var place = map.Places.Find(p => p.name == _placeName);
+            var place = map.Places.Find(p => p.Name == _placeName);
 
             if (map.ToString() == null || place.ToString() == null)
             {
@@ -82,8 +82,8 @@ namespace Valkyrie.Loader
 
             Place newPlace = new Place()
             {
-                name = nameBox.Text,
-                coordinates = coordinates
+                Name = nameBox.Text,
+                Coordinates = coordinates
             };
 
             var index = map.Places.IndexOf(place);

@@ -13,7 +13,7 @@ namespace Valkyrie.Loader
 {
     public partial class Main : MetroForm
     {
-        private Core.Core core = new Core.Core();
+        private Engine engine = new Engine();
         private JsonStorage storage = new JsonStorage();
 
         private List<Map> maps = new List<Map>();
@@ -50,8 +50,8 @@ namespace Valkyrie.Loader
                 Style = MetroColorStyle.Pink;
             }
 
-            coreVersionLabel.Text = core.GetCoreVersion();
-            gameVersionLabel.Text = core.GetCompatibleVersion();
+            coreVersionLabel.Text = engine.GetCoreVersion();
+            gameVersionLabel.Text = engine.GetCompatibleVersion();
 
             metroStyleManager.Theme = Theme;
             metroStyleManager.Style = Style;
@@ -59,12 +59,14 @@ namespace Valkyrie.Loader
             UpdateControlsToTheme();
 
             if (!BackgroundWorker1.IsBusy)
+            {
                 BackgroundWorker1.RunWorkerAsync();
+            }
         }
 
         private bool ImAlive()
         {
-            if (core.GetPlayerInfo().MaxHp > 0)
+            if (engine.GetPlayerInfo().MaxHp > 0)
             {
                 return true;
             }
@@ -119,7 +121,7 @@ namespace Valkyrie.Loader
 
                 if (openProc)
                 {
-                    core.Update();
+                    engine.Update();
 
                     hpTitleLabel.Invoke((MethodInvoker)delegate
                     {
@@ -148,33 +150,33 @@ namespace Valkyrie.Loader
                         hpLabel.Invoke((MethodInvoker)delegate
                         {
                             hpLabel.Visible = true;
-                            hpLabel.Text = core.GetPlayerInfo().Hp + " / " + core.GetPlayerInfo().MaxHp;
+                            hpLabel.Text = engine.GetPlayerInfo().Hp + " / " + engine.GetPlayerInfo().MaxHp;
                         });
 
                         movSpeedLabel.Invoke((MethodInvoker)delegate
                         {
                             movSpeedLabel.Visible = true;
-                            movSpeedLabel.Text = core.GetPlayerInfo().MovementSpeed.ToString();
+                            movSpeedLabel.Text = engine.GetPlayerInfo().MovementSpeed.ToString();
                         });
 
                         mainMapLabel.Invoke((MethodInvoker)delegate
                         {
                             mainMapLabel.Visible = true;
-                            var nameToShow = maps.Where(m => m.Id == core.GetMapInfo().Id).ToList();
-                            mainMapLabel.Text = core.GetPlayerInfo().MovementSpeed == 0 ? "Loading..." : !nameToShow.Any() ? "Unknown map" : nameToShow[0].Name;
+                            var nameToShow = maps.Where(m => m.Id == engine.GetMapInfo().Id).ToList();
+                            mainMapLabel.Text = engine.GetPlayerInfo().MovementSpeed == 0 ? "Loading..." : !nameToShow.Any() ? "Unknown map" : nameToShow[0].Name;
 
                         });
 
                         mapID.Invoke((MethodInvoker)delegate
                         {
-                            mapID.Text = core.GetPlayerInfo().MovementSpeed == 0 ? "Loading..." : core.GetMapInfo().Id.ToString();
+                            mapID.Text = engine.GetPlayerInfo().MovementSpeed == 0 ? "Loading..." : engine.GetMapInfo().Id.ToString();
                         });
 
                         positionBox.Invoke(new MethodInvoker(delegate
                         {
-                            corXLabel.Text = core.GetPlayerInfo().PosX.ToString();
-                            corYLabel.Text = core.GetPlayerInfo().PosY.ToString();
-                            corZLabel.Text = core.GetPlayerInfo().PosZ.ToString();
+                            corXLabel.Text = engine.GetPlayerInfo().PosX.ToString();
+                            corYLabel.Text = engine.GetPlayerInfo().PosY.ToString();
+                            corZLabel.Text = engine.GetPlayerInfo().PosZ.ToString();
                         }));
 
                         if (movSpeedToggle.Checked)
@@ -197,7 +199,7 @@ namespace Valkyrie.Loader
                                 }));
                             }
 
-                            core.Speedhack(float.Parse(movSpeedBox.Text));
+                            engine.Speedhack(float.Parse(movSpeedBox.Text));
                         }
                         else
                         {
@@ -208,7 +210,7 @@ namespace Valkyrie.Loader
 
                             movSpeedBox.Invoke(new MethodInvoker(delegate
                             {
-                                movSpeedBox.Text = core.GetPlayerInfo().MovementSpeed.ToString();
+                                movSpeedBox.Text = engine.GetPlayerInfo().MovementSpeed.ToString();
                             }));
 
                             movSpeedStatusLabel.Invoke(new MethodInvoker(delegate
@@ -224,7 +226,7 @@ namespace Valkyrie.Loader
                                 wallFrictionLabel.Visible = true;
                             }));
 
-                            core.WallfrictionHack(0);
+                            engine.WallfrictionHack(0);
                         }
                         else
                         {
@@ -233,21 +235,21 @@ namespace Valkyrie.Loader
                                 wallFrictionLabel.Visible = false;
                             }));
 
-                            core.WallfrictionHack(1);
+                            engine.WallfrictionHack(1);
                         }
 
                         mapLabel.Invoke((MethodInvoker)delegate
                         {
-                            var nameToShow = maps.Where(m => m.Id == core.GetMapInfo().Id).ToList();
+                            var nameToShow = maps.Where(m => m.Id == engine.GetMapInfo().Id).ToList();
 
-                            if (core.GetPlayerInfo().MovementSpeed == 0)
+                            if (engine.GetPlayerInfo().MovementSpeed == 0)
                             {
                                 mapLabel.Text = "Loading...";
                                 mapIdLoading.Visible = true;
                                 mapNameLoading.Visible = true;
                                 mapLabel.ForeColor = Color.DarkGray;
                             }
-                            else if (!nameToShow.Any() && core.GetPlayerInfo().MovementSpeed > 0)
+                            else if (!nameToShow.Any() && engine.GetPlayerInfo().MovementSpeed > 0)
                             {
                                 mapLabel.Text = "Unknown map";
                                 mapIdLoading.Visible = false;
@@ -340,10 +342,10 @@ namespace Valkyrie.Loader
             if (selectedProc > 0)
             {
                 Debug.WriteLine("Now changing process to " + selectedProc);
-                core.Inject(selectedProc);
+                engine.Inject(selectedProc);
 
                 // Check if the Game version is compatible with the Core
-                if (core.GetCompatibleVersion() != core.GetGameVersion())
+                if (engine.GetCompatibleVersion() != engine.GetGameVersion())
                 {
                     procStatusLabel.Invoke((MethodInvoker)delegate
                     {
@@ -370,7 +372,7 @@ namespace Valkyrie.Loader
             placeBox.ResetText();
             placeBox.Refresh();
 
-            foreach (var map in maps.Where(m => m.Id == core.GetMapInfo().Id))
+            foreach (var map in maps.Where(m => m.Id == engine.GetMapInfo().Id))
             {
                 if (map.Places == null)
                 {
@@ -379,7 +381,7 @@ namespace Valkyrie.Loader
 
                 foreach (var place in map.Places)
                 {
-                    placeBox.Items.Add(place.name);
+                    placeBox.Items.Add(place.Name);
                 }
             }
 
@@ -398,7 +400,7 @@ namespace Valkyrie.Loader
 
                     foreach (var element in map.Places)
                     {
-                        managePlacesBox.Items.Add(element.name);
+                        managePlacesBox.Items.Add(element.Name);
                     }
                 }
             }
@@ -499,12 +501,12 @@ namespace Valkyrie.Loader
             rollbackBtn.Enabled = true;
 
             // Save the actual coordinates for emergency backup
-            savedX = core.GetPlayerInfo().PosX;
-            savedY = core.GetPlayerInfo().PosY;
-            savedZ = core.GetPlayerInfo().PosZ;
+            savedX = engine.GetPlayerInfo().PosX;
+            savedY = engine.GetPlayerInfo().PosY;
+            savedZ = engine.GetPlayerInfo().PosZ;
 
             // Move to the new coordinates
-            core.TeleportHack((float)corXBox.Value, (float)corYBox.Value, (float)corZBox.Value);
+            engine.TeleportHack((float)corXBox.Value, (float)corYBox.Value, (float)corZBox.Value);
         }
 
         private void RollbackBtn_Click(object sender, EventArgs e)
@@ -515,7 +517,7 @@ namespace Valkyrie.Loader
             }
 
             // Move to the backup coordinates
-            core.TeleportHack(savedX, savedY, savedZ);
+            engine.TeleportHack(savedX, savedY, savedZ);
         }
 
         private void SaveCurrentCorsBtn_Click(object sender, EventArgs e)
@@ -525,7 +527,7 @@ namespace Valkyrie.Loader
                 return;
             }
 
-            var addForm = new SaveCurrent(core.GetMapInfo().Id, core.GetPlayerInfo().PosX, core.GetPlayerInfo().PosY, core.GetPlayerInfo().PosZ);
+            var addForm = new SaveCurrent(engine.GetMapInfo().Id, engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
             addForm.ShowDialog();
             RefreshPlaces();
         }
@@ -543,9 +545,9 @@ namespace Valkyrie.Loader
                 placeBox.ResetText();
                 placeBox.Refresh();
 
-                Console.WriteLine(core.GetMapInfo().Name);
+                Console.WriteLine(engine.GetMapInfo().Name);
 
-                var map = maps.Find(m => m.Id == core.GetMapInfo().Id);
+                var map = maps.Find(m => m.Id == engine.GetMapInfo().Id);
 
                 if (map.Places == null)
                 {
@@ -554,7 +556,7 @@ namespace Valkyrie.Loader
 
                 foreach (var place in map.Places)
                 {
-                    placeBox.Items.Add(place.name);
+                    placeBox.Items.Add(place.Name);
                 }
             }
         }
@@ -577,7 +579,7 @@ namespace Valkyrie.Loader
                 return;
             }
 
-            core.TeleportHack(savedX, savedY, savedZ);
+            engine.TeleportHack(savedX, savedY, savedZ);
 
             // Output
             outputBox.AppendText("Rolled back to: [ x: " + savedX + " y: " + savedY + " z: " + savedZ + " ]");
@@ -598,11 +600,11 @@ namespace Valkyrie.Loader
 
             float[] coordinates = { };
 
-            foreach (var maps in maps.Where(m => m.Id == core.GetMapInfo().Id).ToList())
+            foreach (var maps in maps.Where(m => m.Id == engine.GetMapInfo().Id).ToList())
             {
-                foreach (var element in maps.Places.Where(p => p.name == placeBox.Text))
+                foreach (var element in maps.Places.Where(p => p.Name == placeBox.Text))
                 {
-                    coordinates = element.coordinates;
+                    coordinates = element.Coordinates;
                 }
             }
 
@@ -610,11 +612,11 @@ namespace Valkyrie.Loader
             if (placeBox.SelectedItem != null)
             {
                 // Save the actual coordinates for emergency backup
-                savedX = core.GetPlayerInfo().PosX;
-                savedY = core.GetPlayerInfo().PosY;
-                savedZ = core.GetPlayerInfo().PosZ;
+                savedX = engine.GetPlayerInfo().PosX;
+                savedY = engine.GetPlayerInfo().PosY;
+                savedZ = engine.GetPlayerInfo().PosZ;
 
-                core.TeleportHack(coordinates[0], coordinates[1], coordinates[2]);
+                engine.TeleportHack(coordinates[0], coordinates[1], coordinates[2]);
 
                 // Output
                 outputBox.AppendText("Teleported to: [ x: " + coordinates[0].ToString() + " y: " + coordinates[1].ToString() + " z: " + coordinates[2] + " ]");
@@ -667,7 +669,7 @@ namespace Valkyrie.Loader
                 return;
             }
 
-            var addplaceForm = new AddPlace(map.Id, "", core.GetPlayerInfo().PosX, core.GetPlayerInfo().PosY, core.GetPlayerInfo().PosZ);
+            var addplaceForm = new AddPlace(map.Id, "", engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
             addplaceForm.ShowDialog();
             RefreshPlaces();
         }
@@ -683,11 +685,11 @@ namespace Valkyrie.Loader
 
             var map = maps.Find(m => m.Name == manageMapBox.Text);
 
-            var place = map.Places.Find(p => p.name == managePlacesBox.SelectedItem.ToString());
+            var place = map.Places.Find(p => p.Name == managePlacesBox.SelectedItem.ToString());
 
-            coordiantes = place.coordinates;
+            coordiantes = place.Coordinates;
 
-            var editForm = new EditPlace(map.Id, managePlacesBox.SelectedItem.ToString(), coordiantes, core.GetPlayerInfo().PosX, core.GetPlayerInfo().PosY, core.GetPlayerInfo().PosZ);
+            var editForm = new EditPlace(map.Id, managePlacesBox.SelectedItem.ToString(), coordiantes, engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
             editForm.ShowDialog();
             RefreshPlaces();
         }
@@ -703,11 +705,11 @@ namespace Valkyrie.Loader
 
             var map = maps.Find(m => m.Name == manageMapBox.Text);
 
-            var place = map.Places.Find(p => p.name == managePlacesBox.SelectedItem.ToString());
+            var place = map.Places.Find(p => p.Name == managePlacesBox.SelectedItem.ToString());
 
-            coordiantes = place.coordinates;
+            coordiantes = place.Coordinates;
 
-            var editForm = new EditPlace(map.Id, managePlacesBox.SelectedItem.ToString(), coordiantes, core.GetPlayerInfo().PosX, core.GetPlayerInfo().PosY, core.GetPlayerInfo().PosZ);
+            var editForm = new EditPlace(map.Id, managePlacesBox.SelectedItem.ToString(), coordiantes, engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
             editForm.ShowDialog();
             RefreshPlaces();
         }
@@ -732,7 +734,7 @@ namespace Valkyrie.Loader
                 return;
             }
 
-            map.Places.RemoveAll(p => p.name == managePlacesBox.SelectedItem.ToString());
+            map.Places.RemoveAll(p => p.Name == managePlacesBox.SelectedItem.ToString());
 
             storage.StoreObject(maps, "Resources/data");
             RefreshPlaces();
@@ -837,11 +839,6 @@ namespace Valkyrie.Loader
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void GithubLink_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/madgwee");
@@ -856,7 +853,7 @@ namespace Valkyrie.Loader
 
             storage.StoreObject(metroStyle, "Resources/config");
 
-            core.Close();
+            engine.Close();
             Environment.Exit(0);
         }
     }

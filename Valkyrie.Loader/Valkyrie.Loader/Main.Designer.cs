@@ -102,6 +102,7 @@
             this.deletePlaceBtn = new MetroFramework.Controls.MetroButton();
             this.addPlaceBtn = new MetroFramework.Controls.MetroButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.manageMapBox = new MetroFramework.Controls.MetroComboBox();
             this.aboutTab = new System.Windows.Forms.TabPage();
             this.aboutPanel = new System.Windows.Forms.Panel();
             this.metroTileSwitch = new MetroFramework.Controls.MetroTile();
@@ -117,7 +118,6 @@
             this.BackgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.metroStyleExtender = new MetroFramework.Components.MetroStyleExtender(this.components);
-            this.manageMapBox = new MetroFramework.Controls.MetroComboBox();
             this.metroTabControl1.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -155,7 +155,7 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 3;
             this.metroTabControl1.Size = new System.Drawing.Size(610, 276);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -239,7 +239,6 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Character Information";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // mainMapLabel
             // 
@@ -1024,6 +1023,20 @@
             this.metroLabel5.TabIndex = 24;
             this.metroLabel5.Text = "Filter";
             // 
+            // manageMapBox
+            // 
+            this.manageMapBox.FormattingEnabled = true;
+            this.manageMapBox.IntegralHeight = false;
+            this.manageMapBox.ItemHeight = 23;
+            this.manageMapBox.Location = new System.Drawing.Point(410, 66);
+            this.manageMapBox.Name = "manageMapBox";
+            this.manageMapBox.PromptText = "Select map";
+            this.manageMapBox.Size = new System.Drawing.Size(175, 29);
+            this.manageMapBox.TabIndex = 34;
+            this.manageMapBox.UseSelectable = true;
+            this.manageMapBox.SelectedIndexChanged += new System.EventHandler(this.ManageMapBox_SelectedIndexChanged);
+            this.manageMapBox.SelectedValueChanged += new System.EventHandler(this.ManageMapBox_SelectedValueChanged);
+            // 
             // aboutTab
             // 
             this.aboutTab.BackColor = System.Drawing.Color.Transparent;
@@ -1166,20 +1179,6 @@
             this.metroContextMenu1.Name = "metroContextMenu1";
             this.metroContextMenu1.Size = new System.Drawing.Size(61, 4);
             // 
-            // manageMapBox
-            // 
-            this.manageMapBox.FormattingEnabled = true;
-            this.manageMapBox.IntegralHeight = false;
-            this.manageMapBox.ItemHeight = 23;
-            this.manageMapBox.Location = new System.Drawing.Point(410, 66);
-            this.manageMapBox.Name = "manageMapBox";
-            this.manageMapBox.PromptText = "Select map";
-            this.manageMapBox.Size = new System.Drawing.Size(175, 29);
-            this.manageMapBox.TabIndex = 34;
-            this.manageMapBox.UseSelectable = true;
-            this.manageMapBox.SelectedIndexChanged += new System.EventHandler(this.ManageMapBox_SelectedIndexChanged);
-            this.manageMapBox.SelectedValueChanged += new System.EventHandler(this.ManageMapBox_SelectedValueChanged);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1192,6 +1191,7 @@
             this.Controls.Add(this.metroTabControl1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(600, 250);
             this.Name = "Main";
             this.Resizable = false;
