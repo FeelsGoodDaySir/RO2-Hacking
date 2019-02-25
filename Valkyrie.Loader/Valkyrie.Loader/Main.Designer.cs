@@ -33,10 +33,8 @@
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.mainTab = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.title4 = new System.Windows.Forms.Label();
-            this.title3 = new System.Windows.Forms.Label();
-            this.title2 = new System.Windows.Forms.Label();
-            this.title1 = new System.Windows.Forms.Label();
+            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.changelogBox = new MetroFramework.Controls.MetroTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mainMapLabel = new MetroFramework.Controls.MetroLabel();
             this.mapTitleLabel = new MetroFramework.Controls.MetroLabel();
@@ -44,7 +42,6 @@
             this.movSpeedLabel = new MetroFramework.Controls.MetroLabel();
             this.hpTitleLabel = new MetroFramework.Controls.MetroLabel();
             this.hpLabel = new MetroFramework.Controls.MetroLabel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.procBox = new MetroFramework.Controls.MetroComboBox();
             this.injectionLoading = new MetroFramework.Controls.MetroProgressSpinner();
             this.procStatusLabel = new MetroFramework.Controls.MetroLabel();
@@ -103,8 +100,49 @@
             this.addPlaceBtn = new MetroFramework.Controls.MetroButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.manageMapBox = new MetroFramework.Controls.MetroComboBox();
+            this.hotKeysTab = new System.Windows.Forms.TabPage();
+            this.hotkeysPanel = new System.Windows.Forms.Panel();
+            this.metroLabel33 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel32 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel31 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel30 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel29 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel28 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel27 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel26 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.teleportCors8Box = new System.Windows.Forms.TextBox();
+            this.teleportCors7Box = new System.Windows.Forms.TextBox();
+            this.teleportCors6Box = new System.Windows.Forms.TextBox();
+            this.teleportCors5Box = new System.Windows.Forms.TextBox();
+            this.teleportCors4Box = new System.Windows.Forms.TextBox();
+            this.teleportCors3Box = new System.Windows.Forms.TextBox();
+            this.teleportCors2Box = new System.Windows.Forms.TextBox();
+            this.teleportKey8Box = new System.Windows.Forms.TextBox();
+            this.teleportKey7Box = new System.Windows.Forms.TextBox();
+            this.teleportKey6Box = new System.Windows.Forms.TextBox();
+            this.teleportKey5Box = new System.Windows.Forms.TextBox();
+            this.teleportKey4Box = new System.Windows.Forms.TextBox();
+            this.teleportKey3Box = new System.Windows.Forms.TextBox();
+            this.teleportKey2Box = new System.Windows.Forms.TextBox();
+            this.teleportKey1Box = new System.Windows.Forms.TextBox();
+            this.teleportCors1Box = new System.Windows.Forms.TextBox();
+            this.metroLabel51 = new MetroFramework.Controls.MetroLabel();
             this.aboutTab = new System.Windows.Forms.TabPage();
             this.aboutPanel = new System.Windows.Forms.Panel();
+            this.loaderVersionLabel = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel34 = new MetroFramework.Controls.MetroLabel();
+            this.title4 = new System.Windows.Forms.Label();
+            this.title3 = new System.Windows.Forms.Label();
+            this.title2 = new System.Windows.Forms.Label();
+            this.title1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.metroTileSwitch = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.gameVersionLabel = new MetroFramework.Controls.MetroLabel();
@@ -112,17 +150,15 @@
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.githubLink = new MetroFramework.Controls.MetroLink();
             this.metroStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.BackgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.metroStyleExtender = new MetroFramework.Components.MetroStyleExtender(this.components);
+            this.metroContextMenu2 = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.metroTabControl1.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.magicTab.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.movSpeedBox)).BeginInit();
@@ -139,9 +175,11 @@
             this.panel4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.sortedManagePlaceBox.SuspendLayout();
+            this.hotKeysTab.SuspendLayout();
+            this.hotkeysPanel.SuspendLayout();
             this.aboutTab.SuspendLayout();
             this.aboutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,12 +189,13 @@
             this.metroTabControl1.Controls.Add(this.mainTab);
             this.metroTabControl1.Controls.Add(this.magicTab);
             this.metroTabControl1.Controls.Add(this.teleportTab);
+            this.metroTabControl1.Controls.Add(this.hotKeysTab);
             this.metroTabControl1.Controls.Add(this.aboutTab);
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 3;
-            this.metroTabControl1.Size = new System.Drawing.Size(610, 276);
+            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.Size = new System.Drawing.Size(610, 273);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -166,62 +205,64 @@
             this.mainTab.Controls.Add(this.panel1);
             this.mainTab.Location = new System.Drawing.Point(4, 41);
             this.mainTab.Name = "mainTab";
-            this.mainTab.Size = new System.Drawing.Size(602, 231);
+            this.mainTab.Size = new System.Drawing.Size(602, 228);
             this.mainTab.TabIndex = 0;
             this.mainTab.Text = "Main";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.title4);
-            this.panel1.Controls.Add(this.title3);
-            this.panel1.Controls.Add(this.title2);
-            this.panel1.Controls.Add(this.title1);
+            this.panel1.Controls.Add(this.metroLabel8);
+            this.panel1.Controls.Add(this.changelogBox);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.procBox);
             this.panel1.Controls.Add(this.injectionLoading);
             this.panel1.Controls.Add(this.procStatusLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(602, 231);
+            this.panel1.Size = new System.Drawing.Size(602, 228);
             this.panel1.TabIndex = 1;
             // 
-            // title4
+            // metroLabel8
             // 
-            this.title4.AutoSize = true;
-            this.title4.Location = new System.Drawing.Point(334, 87);
-            this.title4.Name = "title4";
-            this.title4.Size = new System.Drawing.Size(80, 13);
-            this.title4.TabIndex = 21;
-            this.title4.Text = "Please report it!";
+            this.metroLabel8.AutoSize = true;
+            this.metroLabel8.Location = new System.Drawing.Point(197, 10);
+            this.metroLabel8.Name = "metroLabel8";
+            this.metroLabel8.Size = new System.Drawing.Size(73, 19);
+            this.metroLabel8.TabIndex = 19;
+            this.metroLabel8.Text = "Changelog";
             // 
-            // title3
+            // changelogBox
             // 
-            this.title3.AutoSize = true;
-            this.title3.Location = new System.Drawing.Point(317, 71);
-            this.title3.Name = "title3";
-            this.title3.Size = new System.Drawing.Size(83, 13);
-            this.title3.TabIndex = 20;
-            this.title3.Text = "If you find a bug";
             // 
-            // title2
             // 
-            this.title2.AutoSize = true;
-            this.title2.Location = new System.Drawing.Point(325, 147);
-            this.title2.Name = "title2";
-            this.title2.Size = new System.Drawing.Size(132, 13);
-            this.title2.TabIndex = 19;
-            this.title2.Text = "a cheat for a dead game :)";
             // 
-            // title1
-            // 
-            this.title1.AutoSize = true;
-            this.title1.Location = new System.Drawing.Point(308, 134);
-            this.title1.Name = "title1";
-            this.title1.Size = new System.Drawing.Size(70, 13);
-            this.title1.TabIndex = 18;
-            this.title1.Text = "Yep... I made";
+            this.changelogBox.CustomButton.Image = null;
+            this.changelogBox.CustomButton.Location = new System.Drawing.Point(216, 2);
+            this.changelogBox.CustomButton.Name = "";
+            this.changelogBox.CustomButton.Size = new System.Drawing.Size(183, 183);
+            this.changelogBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.changelogBox.CustomButton.TabIndex = 1;
+            this.changelogBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.changelogBox.CustomButton.UseSelectable = true;
+            this.changelogBox.CustomButton.Visible = false;
+            this.changelogBox.Lines = new string[0];
+            this.changelogBox.Location = new System.Drawing.Point(197, 40);
+            this.changelogBox.MaxLength = 32767;
+            this.changelogBox.Multiline = true;
+            this.changelogBox.Name = "changelogBox";
+            this.changelogBox.PasswordChar = '\0';
+            this.changelogBox.ReadOnly = true;
+            this.changelogBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.changelogBox.SelectedText = "";
+            this.changelogBox.SelectionLength = 0;
+            this.changelogBox.SelectionStart = 0;
+            this.changelogBox.ShortcutsEnabled = true;
+            this.changelogBox.Size = new System.Drawing.Size(402, 188);
+            this.changelogBox.TabIndex = 18;
+            this.changelogBox.UseSelectable = true;
+            this.changelogBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.changelogBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // groupBox1
             // 
@@ -309,15 +350,6 @@
             this.hpLabel.Text = "Waiting...";
             this.hpLabel.Visible = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Valkyrie.Loader.Properties.Resources.main2;
-            this.pictureBox2.Location = new System.Drawing.Point(328, -4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(271, 232);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            // 
             // procBox
             // 
             this.procBox.FormattingEnabled = true;
@@ -358,7 +390,7 @@
             this.magicTab.Controls.Add(this.panel2);
             this.magicTab.Location = new System.Drawing.Point(4, 41);
             this.magicTab.Name = "magicTab";
-            this.magicTab.Size = new System.Drawing.Size(602, 231);
+            this.magicTab.Size = new System.Drawing.Size(602, 228);
             this.magicTab.TabIndex = 2;
             this.magicTab.Text = "Magic";
             // 
@@ -374,7 +406,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(602, 231);
+            this.panel2.Size = new System.Drawing.Size(602, 228);
             this.panel2.TabIndex = 2;
             // 
             // wallFrictionLabel
@@ -397,6 +429,11 @@
             this.movSpeedBox.Enabled = false;
             this.movSpeedBox.ForeColor = System.Drawing.Color.Gainsboro;
             this.movSpeedBox.Location = new System.Drawing.Point(201, 46);
+            this.movSpeedBox.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.movSpeedBox.Name = "movSpeedBox";
             this.movSpeedBox.Size = new System.Drawing.Size(120, 20);
             this.movSpeedBox.TabIndex = 38;
@@ -469,7 +506,7 @@
             this.teleportTab.Controls.Add(this.panel3);
             this.teleportTab.Location = new System.Drawing.Point(4, 41);
             this.teleportTab.Name = "teleportTab";
-            this.teleportTab.Size = new System.Drawing.Size(602, 231);
+            this.teleportTab.Size = new System.Drawing.Size(602, 228);
             this.teleportTab.TabIndex = 1;
             this.teleportTab.Text = "Teleport";
             // 
@@ -479,7 +516,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(602, 231);
+            this.panel3.Size = new System.Drawing.Size(602, 228);
             this.panel3.TabIndex = 2;
             // 
             // metroTabControl2
@@ -490,7 +527,7 @@
             this.metroTabControl2.Controls.Add(this.tabPage3);
             this.metroTabControl2.Location = new System.Drawing.Point(3, 3);
             this.metroTabControl2.Name = "metroTabControl2";
-            this.metroTabControl2.SelectedIndex = 0;
+            this.metroTabControl2.SelectedIndex = 2;
             this.metroTabControl2.Size = new System.Drawing.Size(596, 232);
             this.metroTabControl2.TabIndex = 3;
             this.metroTabControl2.UseSelectable = true;
@@ -527,7 +564,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(182, 160);
+            this.metroLabel2.Location = new System.Drawing.Point(183, 160);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(221, 19);
             this.metroLabel2.TabIndex = 16;
@@ -1005,6 +1042,7 @@
             // 
             // addPlaceBtn
             // 
+            this.addPlaceBtn.Enabled = false;
             this.addPlaceBtn.Location = new System.Drawing.Point(410, 101);
             this.addPlaceBtn.Name = "addPlaceBtn";
             this.addPlaceBtn.Size = new System.Drawing.Size(175, 34);
@@ -1037,18 +1075,379 @@
             this.manageMapBox.SelectedIndexChanged += new System.EventHandler(this.ManageMapBox_SelectedIndexChanged);
             this.manageMapBox.SelectedValueChanged += new System.EventHandler(this.ManageMapBox_SelectedValueChanged);
             // 
+            // hotKeysTab
+            // 
+            this.hotKeysTab.BackColor = System.Drawing.Color.Transparent;
+            this.hotKeysTab.Controls.Add(this.hotkeysPanel);
+            this.hotKeysTab.Location = new System.Drawing.Point(4, 41);
+            this.hotKeysTab.Name = "hotKeysTab";
+            this.hotKeysTab.Size = new System.Drawing.Size(602, 228);
+            this.hotKeysTab.TabIndex = 4;
+            this.hotKeysTab.Text = "Hotkeys";
+            // 
+            // hotkeysPanel
+            // 
+            this.hotkeysPanel.Controls.Add(this.metroLabel33);
+            this.hotkeysPanel.Controls.Add(this.metroLabel32);
+            this.hotkeysPanel.Controls.Add(this.metroLabel31);
+            this.hotkeysPanel.Controls.Add(this.metroLabel30);
+            this.hotkeysPanel.Controls.Add(this.metroLabel29);
+            this.hotkeysPanel.Controls.Add(this.metroLabel28);
+            this.hotkeysPanel.Controls.Add(this.metroLabel27);
+            this.hotkeysPanel.Controls.Add(this.metroLabel26);
+            this.hotkeysPanel.Controls.Add(this.metroLabel25);
+            this.hotkeysPanel.Controls.Add(this.metroLabel23);
+            this.hotkeysPanel.Controls.Add(this.metroLabel22);
+            this.hotkeysPanel.Controls.Add(this.metroLabel13);
+            this.hotkeysPanel.Controls.Add(this.metroLabel12);
+            this.hotkeysPanel.Controls.Add(this.metroLabel10);
+            this.hotkeysPanel.Controls.Add(this.metroLabel9);
+            this.hotkeysPanel.Controls.Add(this.teleportCors8Box);
+            this.hotkeysPanel.Controls.Add(this.teleportCors7Box);
+            this.hotkeysPanel.Controls.Add(this.teleportCors6Box);
+            this.hotkeysPanel.Controls.Add(this.teleportCors5Box);
+            this.hotkeysPanel.Controls.Add(this.teleportCors4Box);
+            this.hotkeysPanel.Controls.Add(this.teleportCors3Box);
+            this.hotkeysPanel.Controls.Add(this.teleportCors2Box);
+            this.hotkeysPanel.Controls.Add(this.teleportKey8Box);
+            this.hotkeysPanel.Controls.Add(this.teleportKey7Box);
+            this.hotkeysPanel.Controls.Add(this.teleportKey6Box);
+            this.hotkeysPanel.Controls.Add(this.teleportKey5Box);
+            this.hotkeysPanel.Controls.Add(this.teleportKey4Box);
+            this.hotkeysPanel.Controls.Add(this.teleportKey3Box);
+            this.hotkeysPanel.Controls.Add(this.teleportKey2Box);
+            this.hotkeysPanel.Controls.Add(this.teleportKey1Box);
+            this.hotkeysPanel.Controls.Add(this.teleportCors1Box);
+            this.hotkeysPanel.Controls.Add(this.metroLabel51);
+            this.hotkeysPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hotkeysPanel.Location = new System.Drawing.Point(0, 0);
+            this.hotkeysPanel.Name = "hotkeysPanel";
+            this.hotkeysPanel.Size = new System.Drawing.Size(602, 228);
+            this.hotkeysPanel.TabIndex = 3;
+            // 
+            // metroLabel33
+            // 
+            this.metroLabel33.AutoSize = true;
+            this.metroLabel33.Location = new System.Drawing.Point(395, 160);
+            this.metroLabel33.Name = "metroLabel33";
+            this.metroLabel33.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel33.TabIndex = 54;
+            this.metroLabel33.Text = "Teleport to";
+            // 
+            // metroLabel32
+            // 
+            this.metroLabel32.AutoSize = true;
+            this.metroLabel32.Location = new System.Drawing.Point(395, 109);
+            this.metroLabel32.Name = "metroLabel32";
+            this.metroLabel32.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel32.TabIndex = 53;
+            this.metroLabel32.Text = "Teleport to";
+            // 
+            // metroLabel31
+            // 
+            this.metroLabel31.AutoSize = true;
+            this.metroLabel31.Location = new System.Drawing.Point(395, 61);
+            this.metroLabel31.Name = "metroLabel31";
+            this.metroLabel31.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel31.TabIndex = 52;
+            this.metroLabel31.Text = "Teleport to";
+            // 
+            // metroLabel30
+            // 
+            this.metroLabel30.AutoSize = true;
+            this.metroLabel30.Location = new System.Drawing.Point(395, 13);
+            this.metroLabel30.Name = "metroLabel30";
+            this.metroLabel30.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel30.TabIndex = 51;
+            this.metroLabel30.Text = "Teleport to";
+            // 
+            // metroLabel29
+            // 
+            this.metroLabel29.AutoSize = true;
+            this.metroLabel29.Location = new System.Drawing.Point(135, 160);
+            this.metroLabel29.Name = "metroLabel29";
+            this.metroLabel29.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel29.TabIndex = 50;
+            this.metroLabel29.Text = "Teleport to";
+            // 
+            // metroLabel28
+            // 
+            this.metroLabel28.AutoSize = true;
+            this.metroLabel28.Location = new System.Drawing.Point(135, 109);
+            this.metroLabel28.Name = "metroLabel28";
+            this.metroLabel28.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel28.TabIndex = 49;
+            this.metroLabel28.Text = "Teleport to";
+            // 
+            // metroLabel27
+            // 
+            this.metroLabel27.AutoSize = true;
+            this.metroLabel27.Location = new System.Drawing.Point(135, 61);
+            this.metroLabel27.Name = "metroLabel27";
+            this.metroLabel27.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel27.TabIndex = 48;
+            this.metroLabel27.Text = "Teleport to";
+            // 
+            // metroLabel26
+            // 
+            this.metroLabel26.AutoSize = true;
+            this.metroLabel26.Location = new System.Drawing.Point(135, 13);
+            this.metroLabel26.Name = "metroLabel26";
+            this.metroLabel26.Size = new System.Drawing.Size(74, 19);
+            this.metroLabel26.TabIndex = 47;
+            this.metroLabel26.Text = "Teleport to";
+            // 
+            // metroLabel25
+            // 
+            this.metroLabel25.AutoSize = true;
+            this.metroLabel25.Location = new System.Drawing.Point(320, 13);
+            this.metroLabel25.Name = "metroLabel25";
+            this.metroLabel25.Size = new System.Drawing.Size(29, 19);
+            this.metroLabel25.TabIndex = 46;
+            this.metroLabel25.Text = "Key";
+            // 
+            // metroLabel23
+            // 
+            this.metroLabel23.AutoSize = true;
+            this.metroLabel23.Location = new System.Drawing.Point(320, 61);
+            this.metroLabel23.Name = "metroLabel23";
+            this.metroLabel23.Size = new System.Drawing.Size(29, 19);
+            this.metroLabel23.TabIndex = 45;
+            this.metroLabel23.Text = "Key";
+            // 
+            // metroLabel22
+            // 
+            this.metroLabel22.AutoSize = true;
+            this.metroLabel22.Location = new System.Drawing.Point(320, 109);
+            this.metroLabel22.Name = "metroLabel22";
+            this.metroLabel22.Size = new System.Drawing.Size(29, 19);
+            this.metroLabel22.TabIndex = 44;
+            this.metroLabel22.Text = "Key";
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(320, 160);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(29, 19);
+            this.metroLabel13.TabIndex = 43;
+            this.metroLabel13.Text = "Key";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(60, 160);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(29, 19);
+            this.metroLabel12.TabIndex = 42;
+            this.metroLabel12.Text = "Key";
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.Location = new System.Drawing.Point(60, 109);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(29, 19);
+            this.metroLabel10.TabIndex = 41;
+            this.metroLabel10.Text = "Key";
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.Location = new System.Drawing.Point(60, 61);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(29, 19);
+            this.metroLabel9.TabIndex = 40;
+            this.metroLabel9.Text = "Key";
+            // 
+            // teleportCors8Box
+            // 
+            this.teleportCors8Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportCors8Box.Location = new System.Drawing.Point(395, 179);
+            this.teleportCors8Box.Name = "teleportCors8Box";
+            this.teleportCors8Box.Size = new System.Drawing.Size(139, 20);
+            this.teleportCors8Box.TabIndex = 39;
+            this.teleportCors8Box.Text = "None";
+            this.teleportCors8Box.DoubleClick += new System.EventHandler(this.TeleportCors8Box_DoubleClick);
+            // 
+            // teleportCors7Box
+            // 
+            this.teleportCors7Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportCors7Box.Location = new System.Drawing.Point(395, 131);
+            this.teleportCors7Box.Name = "teleportCors7Box";
+            this.teleportCors7Box.Size = new System.Drawing.Size(139, 20);
+            this.teleportCors7Box.TabIndex = 38;
+            this.teleportCors7Box.Text = "None";
+            this.teleportCors7Box.DoubleClick += new System.EventHandler(this.TeleportCors7Box_DoubleClick);
+            // 
+            // teleportCors6Box
+            // 
+            this.teleportCors6Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportCors6Box.Location = new System.Drawing.Point(395, 83);
+            this.teleportCors6Box.Name = "teleportCors6Box";
+            this.teleportCors6Box.Size = new System.Drawing.Size(139, 20);
+            this.teleportCors6Box.TabIndex = 37;
+            this.teleportCors6Box.Text = "None";
+            this.teleportCors6Box.DoubleClick += new System.EventHandler(this.TeleportCors6Box_DoubleClick);
+            // 
+            // teleportCors5Box
+            // 
+            this.teleportCors5Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportCors5Box.Location = new System.Drawing.Point(395, 35);
+            this.teleportCors5Box.Name = "teleportCors5Box";
+            this.teleportCors5Box.Size = new System.Drawing.Size(139, 20);
+            this.teleportCors5Box.TabIndex = 36;
+            this.teleportCors5Box.Text = "None";
+            this.teleportCors5Box.DoubleClick += new System.EventHandler(this.TeleportCors5Box_DoubleClick);
+            // 
+            // teleportCors4Box
+            // 
+            this.teleportCors4Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportCors4Box.Location = new System.Drawing.Point(135, 179);
+            this.teleportCors4Box.Name = "teleportCors4Box";
+            this.teleportCors4Box.Size = new System.Drawing.Size(139, 20);
+            this.teleportCors4Box.TabIndex = 35;
+            this.teleportCors4Box.Text = "None";
+            this.teleportCors4Box.DoubleClick += new System.EventHandler(this.TeleportCors4Box_DoubleClick);
+            // 
+            // teleportCors3Box
+            // 
+            this.teleportCors3Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportCors3Box.Location = new System.Drawing.Point(135, 131);
+            this.teleportCors3Box.Name = "teleportCors3Box";
+            this.teleportCors3Box.Size = new System.Drawing.Size(139, 20);
+            this.teleportCors3Box.TabIndex = 34;
+            this.teleportCors3Box.Text = "None";
+            this.teleportCors3Box.DoubleClick += new System.EventHandler(this.TeleportCors3Box_DoubleClick);
+            // 
+            // teleportCors2Box
+            // 
+            this.teleportCors2Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportCors2Box.Location = new System.Drawing.Point(135, 83);
+            this.teleportCors2Box.Name = "teleportCors2Box";
+            this.teleportCors2Box.Size = new System.Drawing.Size(139, 20);
+            this.teleportCors2Box.TabIndex = 33;
+            this.teleportCors2Box.Text = "None";
+            this.teleportCors2Box.DoubleClick += new System.EventHandler(this.TeleportCors2Box_DoubleClick);
+            // 
+            // teleportKey8Box
+            // 
+            this.teleportKey8Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportKey8Box.Location = new System.Drawing.Point(320, 179);
+            this.teleportKey8Box.Name = "teleportKey8Box";
+            this.teleportKey8Box.Size = new System.Drawing.Size(69, 20);
+            this.teleportKey8Box.TabIndex = 32;
+            this.teleportKey8Box.Text = "None";
+            this.teleportKey8Box.DoubleClick += new System.EventHandler(this.TeleportKey8Box_DoubleClick);
+            // 
+            // teleportKey7Box
+            // 
+            this.teleportKey7Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportKey7Box.Location = new System.Drawing.Point(320, 131);
+            this.teleportKey7Box.Name = "teleportKey7Box";
+            this.teleportKey7Box.Size = new System.Drawing.Size(69, 20);
+            this.teleportKey7Box.TabIndex = 31;
+            this.teleportKey7Box.Text = "None";
+            this.teleportKey7Box.DoubleClick += new System.EventHandler(this.TeleportKey7Box_DoubleClick);
+            // 
+            // teleportKey6Box
+            // 
+            this.teleportKey6Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportKey6Box.Location = new System.Drawing.Point(320, 83);
+            this.teleportKey6Box.Name = "teleportKey6Box";
+            this.teleportKey6Box.Size = new System.Drawing.Size(69, 20);
+            this.teleportKey6Box.TabIndex = 30;
+            this.teleportKey6Box.Text = "None";
+            this.teleportKey6Box.DoubleClick += new System.EventHandler(this.TeleportKey6Box_DoubleClick);
+            // 
+            // teleportKey5Box
+            // 
+            this.teleportKey5Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportKey5Box.Location = new System.Drawing.Point(320, 35);
+            this.teleportKey5Box.Name = "teleportKey5Box";
+            this.teleportKey5Box.Size = new System.Drawing.Size(69, 20);
+            this.teleportKey5Box.TabIndex = 29;
+            this.teleportKey5Box.Text = "None";
+            this.teleportKey5Box.DoubleClick += new System.EventHandler(this.TeleportKey5Box_DoubleClick);
+            // 
+            // teleportKey4Box
+            // 
+            this.teleportKey4Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportKey4Box.Location = new System.Drawing.Point(60, 179);
+            this.teleportKey4Box.Name = "teleportKey4Box";
+            this.teleportKey4Box.Size = new System.Drawing.Size(69, 20);
+            this.teleportKey4Box.TabIndex = 28;
+            this.teleportKey4Box.Text = "None";
+            this.teleportKey4Box.DoubleClick += new System.EventHandler(this.TeleportKey4Box_DoubleClick);
+            // 
+            // teleportKey3Box
+            // 
+            this.teleportKey3Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportKey3Box.Location = new System.Drawing.Point(60, 131);
+            this.teleportKey3Box.Name = "teleportKey3Box";
+            this.teleportKey3Box.Size = new System.Drawing.Size(69, 20);
+            this.teleportKey3Box.TabIndex = 27;
+            this.teleportKey3Box.Text = "None";
+            this.teleportKey3Box.DoubleClick += new System.EventHandler(this.TeleportKey3Box_DoubleClick);
+            // 
+            // teleportKey2Box
+            // 
+            this.teleportKey2Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportKey2Box.Location = new System.Drawing.Point(60, 83);
+            this.teleportKey2Box.Name = "teleportKey2Box";
+            this.teleportKey2Box.Size = new System.Drawing.Size(69, 20);
+            this.teleportKey2Box.TabIndex = 26;
+            this.teleportKey2Box.Text = "None";
+            this.teleportKey2Box.DoubleClick += new System.EventHandler(this.TeleportKey2Box_DoubleClick);
+            // 
+            // teleportKey1Box
+            // 
+            this.teleportKey1Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportKey1Box.Location = new System.Drawing.Point(60, 35);
+            this.teleportKey1Box.Name = "teleportKey1Box";
+            this.teleportKey1Box.Size = new System.Drawing.Size(69, 20);
+            this.teleportKey1Box.TabIndex = 25;
+            this.teleportKey1Box.Text = "None";
+            this.teleportKey1Box.DoubleClick += new System.EventHandler(this.TeleportKey1Box_DoubleClick);
+            // 
+            // teleportCors1Box
+            // 
+            this.teleportCors1Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.teleportCors1Box.Location = new System.Drawing.Point(135, 35);
+            this.teleportCors1Box.Name = "teleportCors1Box";
+            this.teleportCors1Box.Size = new System.Drawing.Size(139, 20);
+            this.teleportCors1Box.TabIndex = 24;
+            this.teleportCors1Box.Text = "None";
+            this.teleportCors1Box.DoubleClick += new System.EventHandler(this.TeleportCors1Box_DoubleClick);
+            // 
+            // metroLabel51
+            // 
+            this.metroLabel51.AutoSize = true;
+            this.metroLabel51.Location = new System.Drawing.Point(60, 13);
+            this.metroLabel51.Name = "metroLabel51";
+            this.metroLabel51.Size = new System.Drawing.Size(29, 19);
+            this.metroLabel51.TabIndex = 1;
+            this.metroLabel51.Text = "Key";
+            // 
             // aboutTab
             // 
             this.aboutTab.BackColor = System.Drawing.Color.Transparent;
             this.aboutTab.Controls.Add(this.aboutPanel);
             this.aboutTab.Location = new System.Drawing.Point(4, 41);
             this.aboutTab.Name = "aboutTab";
-            this.aboutTab.Size = new System.Drawing.Size(602, 231);
+            this.aboutTab.Size = new System.Drawing.Size(602, 228);
             this.aboutTab.TabIndex = 3;
             this.aboutTab.Text = "About";
             // 
             // aboutPanel
             // 
+            this.aboutPanel.Controls.Add(this.loaderVersionLabel);
+            this.aboutPanel.Controls.Add(this.metroLabel34);
+            this.aboutPanel.Controls.Add(this.title4);
+            this.aboutPanel.Controls.Add(this.title3);
+            this.aboutPanel.Controls.Add(this.title2);
+            this.aboutPanel.Controls.Add(this.title1);
+            this.aboutPanel.Controls.Add(this.pictureBox2);
             this.aboutPanel.Controls.Add(this.metroTileSwitch);
             this.aboutPanel.Controls.Add(this.metroTile1);
             this.aboutPanel.Controls.Add(this.gameVersionLabel);
@@ -1056,19 +1455,82 @@
             this.aboutPanel.Controls.Add(this.metroLabel7);
             this.aboutPanel.Controls.Add(this.metroLabel6);
             this.aboutPanel.Controls.Add(this.metroLabel4);
-            this.aboutPanel.Controls.Add(this.pictureBox1);
             this.aboutPanel.Controls.Add(this.githubLink);
             this.aboutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aboutPanel.Location = new System.Drawing.Point(0, 0);
             this.aboutPanel.Name = "aboutPanel";
-            this.aboutPanel.Size = new System.Drawing.Size(602, 231);
+            this.aboutPanel.Size = new System.Drawing.Size(602, 228);
             this.aboutPanel.TabIndex = 0;
+            // 
+            // loaderVersionLabel
+            // 
+            this.loaderVersionLabel.AutoSize = true;
+            this.loaderVersionLabel.Location = new System.Drawing.Point(85, 149);
+            this.loaderVersionLabel.Name = "loaderVersionLabel";
+            this.loaderVersionLabel.Size = new System.Drawing.Size(36, 19);
+            this.loaderVersionLabel.TabIndex = 28;
+            this.loaderVersionLabel.Text = "0.0.0";
+            // 
+            // metroLabel34
+            // 
+            this.metroLabel34.AutoSize = true;
+            this.metroLabel34.Location = new System.Drawing.Point(3, 149);
+            this.metroLabel34.Name = "metroLabel34";
+            this.metroLabel34.Size = new System.Drawing.Size(86, 19);
+            this.metroLabel34.TabIndex = 27;
+            this.metroLabel34.Text = "Loader build:";
+            this.metroLabel34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // title4
+            // 
+            this.title4.AutoSize = true;
+            this.title4.Location = new System.Drawing.Point(334, 87);
+            this.title4.Name = "title4";
+            this.title4.Size = new System.Drawing.Size(80, 13);
+            this.title4.TabIndex = 26;
+            this.title4.Text = "Please report it!";
+            // 
+            // title3
+            // 
+            this.title3.AutoSize = true;
+            this.title3.Location = new System.Drawing.Point(317, 71);
+            this.title3.Name = "title3";
+            this.title3.Size = new System.Drawing.Size(83, 13);
+            this.title3.TabIndex = 25;
+            this.title3.Text = "If you find a bug";
+            // 
+            // title2
+            // 
+            this.title2.AutoSize = true;
+            this.title2.Location = new System.Drawing.Point(325, 147);
+            this.title2.Name = "title2";
+            this.title2.Size = new System.Drawing.Size(132, 13);
+            this.title2.TabIndex = 24;
+            this.title2.Text = "a cheat for a dead game :)";
+            // 
+            // title1
+            // 
+            this.title1.AutoSize = true;
+            this.title1.Location = new System.Drawing.Point(308, 134);
+            this.title1.Name = "title1";
+            this.title1.Size = new System.Drawing.Size(70, 13);
+            this.title1.TabIndex = 23;
+            this.title1.Text = "Yep... I made";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Valkyrie.Loader.Properties.Resources.main2;
+            this.pictureBox2.Location = new System.Drawing.Point(328, -4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(271, 232);
+            this.pictureBox2.TabIndex = 22;
+            this.pictureBox2.TabStop = false;
             // 
             // metroTileSwitch
             // 
             this.metroTileSwitch.ActiveControl = null;
             this.metroTileSwitch.ForeColor = System.Drawing.Color.White;
-            this.metroTileSwitch.Location = new System.Drawing.Point(122, 61);
+            this.metroTileSwitch.Location = new System.Drawing.Point(122, 20);
             this.metroTileSwitch.Name = "metroTileSwitch";
             this.metroTileSwitch.Size = new System.Drawing.Size(111, 80);
             this.metroTileSwitch.TabIndex = 12;
@@ -1083,7 +1545,7 @@
             // 
             this.metroTile1.ActiveControl = null;
             this.metroTile1.ForeColor = System.Drawing.Color.White;
-            this.metroTile1.Location = new System.Drawing.Point(3, 61);
+            this.metroTile1.Location = new System.Drawing.Point(3, 20);
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(113, 80);
             this.metroTile1.TabIndex = 11;
@@ -1096,7 +1558,7 @@
             // gameVersionLabel
             // 
             this.gameVersionLabel.AutoSize = true;
-            this.gameVersionLabel.Location = new System.Drawing.Point(91, 11);
+            this.gameVersionLabel.Location = new System.Drawing.Point(91, 112);
             this.gameVersionLabel.Name = "gameVersionLabel";
             this.gameVersionLabel.Size = new System.Drawing.Size(36, 19);
             this.gameVersionLabel.TabIndex = 10;
@@ -1105,7 +1567,7 @@
             // coreVersionLabel
             // 
             this.coreVersionLabel.AutoSize = true;
-            this.coreVersionLabel.Location = new System.Drawing.Point(72, 29);
+            this.coreVersionLabel.Location = new System.Drawing.Point(72, 130);
             this.coreVersionLabel.Name = "coreVersionLabel";
             this.coreVersionLabel.Size = new System.Drawing.Size(36, 19);
             this.coreVersionLabel.TabIndex = 9;
@@ -1114,7 +1576,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(3, 29);
+            this.metroLabel7.Location = new System.Drawing.Point(3, 130);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(73, 19);
             this.metroLabel7.TabIndex = 8;
@@ -1124,7 +1586,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(3, 10);
+            this.metroLabel6.Location = new System.Drawing.Point(3, 111);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(96, 19);
             this.metroLabel6.TabIndex = 7;
@@ -1136,31 +1598,21 @@
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel4.Location = new System.Drawing.Point(509, 150);
+            this.metroLabel4.Location = new System.Drawing.Point(3, 184);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(90, 15);
             this.metroLabel4.TabIndex = 6;
             this.metroLabel4.Text = "Made by Gwee";
-            this.metroLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Valkyrie.Loader.Properties.Resources.gwee;
-            this.pictureBox1.Location = new System.Drawing.Point(469, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 130);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.metroLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // githubLink
             // 
-            this.githubLink.Location = new System.Drawing.Point(473, 174);
+            this.githubLink.Location = new System.Drawing.Point(3, 202);
             this.githubLink.Name = "githubLink";
             this.githubLink.Size = new System.Drawing.Size(126, 23);
             this.githubLink.TabIndex = 2;
-            this.githubLink.Text = "Github respository";
-            this.githubLink.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.githubLink.Text = "Github";
+            this.githubLink.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.githubLink.UseSelectable = true;
             this.githubLink.Click += new System.EventHandler(this.GithubLink_Click);
             // 
@@ -1178,6 +1630,11 @@
             // 
             this.metroContextMenu1.Name = "metroContextMenu1";
             this.metroContextMenu1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // metroContextMenu2
+            // 
+            this.metroContextMenu2.Name = "metroContextMenu2";
+            this.metroContextMenu2.Size = new System.Drawing.Size(61, 4);
             // 
             // Main
             // 
@@ -1200,14 +1657,12 @@
             this.Text = "Ragnarok Online 2: Valkyrie";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
-            this.Load += new System.EventHandler(this.Main_Load);
             this.metroTabControl1.ResumeLayout(false);
             this.mainTab.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.magicTab.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1229,10 +1684,13 @@
             this.tabPage3.ResumeLayout(false);
             this.sortedManagePlaceBox.ResumeLayout(false);
             this.sortedManagePlaceBox.PerformLayout();
+            this.hotKeysTab.ResumeLayout(false);
+            this.hotkeysPanel.ResumeLayout(false);
+            this.hotkeysPanel.PerformLayout();
             this.aboutTab.ResumeLayout(false);
             this.aboutPanel.ResumeLayout(false);
             this.aboutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).EndInit();
             this.ResumeLayout(false);
 
@@ -1243,17 +1701,12 @@
         private System.Windows.Forms.TabPage mainTab;
         private System.Windows.Forms.TabPage magicTab;
         private System.Windows.Forms.TabPage teleportTab;
-        private MetroFramework.Controls.MetroLabel procStatusLabel;
         private System.Windows.Forms.TabPage aboutTab;
         private System.Windows.Forms.Panel aboutPanel;
         private MetroFramework.Controls.MetroLink githubLink;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel7;
-        private System.Windows.Forms.Panel panel1;
-        private MetroFramework.Controls.MetroLabel hpTitleLabel;
-        private MetroFramework.Controls.MetroProgressSpinner injectionLoading;
         private System.Windows.Forms.Panel panel2;
         private MetroFramework.Controls.MetroLabel metroLabel15;
         private MetroFramework.Controls.MetroToggle wallToggle;
@@ -1284,13 +1737,8 @@
         private MetroFramework.Controls.MetroButton savedTeleportBtn;
         private MetroFramework.Components.MetroStyleManager metroStyleManager;
         private System.ComponentModel.BackgroundWorker BackgroundWorker1;
-        private MetroFramework.Controls.MetroComboBox procBox;
-        private MetroFramework.Controls.MetroLabel hpLabel;
-        private System.Windows.Forms.GroupBox groupBox1;
         private MetroFramework.Controls.MetroToggle movSpeedToggle;
         private System.Windows.Forms.NumericUpDown movSpeedBox;
-        private MetroFramework.Controls.MetroLabel speedTitleLabel;
-        private MetroFramework.Controls.MetroLabel movSpeedLabel;
         private System.Windows.Forms.GroupBox positionBox;
         private MetroFramework.Controls.MetroLabel corZLabel;
         private MetroFramework.Controls.MetroLabel corYLabel;
@@ -1307,26 +1755,73 @@
         private MetroFramework.Controls.MetroButton addPlaceBtn;
         private MetroFramework.Controls.MetroButton deletePlaceBtn;
         private System.Windows.Forms.ListBox managePlacesBox;
-        private MetroFramework.Controls.MetroLabel mainMapLabel;
-        private MetroFramework.Controls.MetroLabel mapTitleLabel;
         private MetroFramework.Controls.MetroLabel coreVersionLabel;
         private MetroFramework.Controls.MetroLabel gameVersionLabel;
         private MetroFramework.Controls.MetroTile metroTileSwitch;
         private MetroFramework.Controls.MetroTile metroTile1;
-        private MetroFramework.Components.MetroStyleExtender metroStyleExtender;
         private MetroFramework.Controls.MetroProgressSpinner mapIdLoading;
         private MetroFramework.Controls.MetroLabel wallFrictionLabel;
         private MetroFramework.Controls.MetroComboBox zoneBox;
         private MetroFramework.Controls.MetroRadioButton dungeonRadioBtn;
         private MetroFramework.Controls.MetroRadioButton fieldRadioBtn;
         private MetroFramework.Controls.MetroLabel metroLabel5;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label title2;
-        private System.Windows.Forms.Label title1;
-        private System.Windows.Forms.Label title4;
-        private System.Windows.Forms.Label title3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroComboBox manageMapBox;
+        private System.Windows.Forms.TabPage hotKeysTab;
+        private System.Windows.Forms.Panel hotkeysPanel;
+        private MetroFramework.Controls.MetroLabel metroLabel51;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MetroFramework.Controls.MetroLabel mainMapLabel;
+        private MetroFramework.Controls.MetroLabel mapTitleLabel;
+        private MetroFramework.Controls.MetroLabel speedTitleLabel;
+        private MetroFramework.Controls.MetroLabel movSpeedLabel;
+        private MetroFramework.Controls.MetroLabel hpTitleLabel;
+        private MetroFramework.Controls.MetroLabel hpLabel;
+        private MetroFramework.Controls.MetroComboBox procBox;
+        private MetroFramework.Controls.MetroProgressSpinner injectionLoading;
+        private MetroFramework.Controls.MetroLabel procStatusLabel;
+        private System.Windows.Forms.TextBox teleportCors1Box;
+        private System.Windows.Forms.TextBox teleportKey1Box;
+        private System.Windows.Forms.TextBox teleportKey8Box;
+        private System.Windows.Forms.TextBox teleportKey7Box;
+        private System.Windows.Forms.TextBox teleportKey6Box;
+        private System.Windows.Forms.TextBox teleportKey5Box;
+        private System.Windows.Forms.TextBox teleportKey4Box;
+        private System.Windows.Forms.TextBox teleportKey3Box;
+        private System.Windows.Forms.TextBox teleportKey2Box;
+        private System.Windows.Forms.TextBox teleportCors8Box;
+        private System.Windows.Forms.TextBox teleportCors7Box;
+        private System.Windows.Forms.TextBox teleportCors6Box;
+        private System.Windows.Forms.TextBox teleportCors5Box;
+        private System.Windows.Forms.TextBox teleportCors4Box;
+        private System.Windows.Forms.TextBox teleportCors3Box;
+        private System.Windows.Forms.TextBox teleportCors2Box;
+        private System.Windows.Forms.Label title4;
+        private System.Windows.Forms.Label title3;
+        private System.Windows.Forms.Label title2;
+        private System.Windows.Forms.Label title1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroTextBox changelogBox;
+        private MetroFramework.Controls.MetroContextMenu metroContextMenu2;
+        private MetroFramework.Controls.MetroLabel metroLabel33;
+        private MetroFramework.Controls.MetroLabel metroLabel32;
+        private MetroFramework.Controls.MetroLabel metroLabel31;
+        private MetroFramework.Controls.MetroLabel metroLabel30;
+        private MetroFramework.Controls.MetroLabel metroLabel29;
+        private MetroFramework.Controls.MetroLabel metroLabel28;
+        private MetroFramework.Controls.MetroLabel metroLabel27;
+        private MetroFramework.Controls.MetroLabel metroLabel26;
+        private MetroFramework.Controls.MetroLabel metroLabel25;
+        private MetroFramework.Controls.MetroLabel metroLabel23;
+        private MetroFramework.Controls.MetroLabel metroLabel22;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel metroLabel10;
+        private MetroFramework.Controls.MetroLabel metroLabel9;
+        private MetroFramework.Controls.MetroLabel loaderVersionLabel;
+        private MetroFramework.Controls.MetroLabel metroLabel34;
     }
 }
 

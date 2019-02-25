@@ -1,26 +1,33 @@
-﻿using System;
+﻿using MetroFramework;
+using MetroFramework.Forms;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Valkyrie.Core;
 
 namespace Valkyrie.Loader
 {
-    public partial class AddPlace : Form
+    public partial class AddPlace : MetroForm
     {
-        private JsonStorage storage = new JsonStorage();
-        private List<Map> maps = new List<Map>();
+        private Main _parentForm;
+        private List<Map> _maps;
+        private Settings _settings;
 
         private int _mapId;
         private float _corX, _corY, _corZ;
 
         private string _placeName;
 
-        public AddPlace(int mapId, string placeName, float corX, float corY, float corZ)
+        public AddPlace(Main parentForm, Settings settings, MetroThemeStyle theme, MetroColorStyle color, 
+            List<Map> maps, int mapId, string placeName, float corX, float corY, float corZ)
         {
             InitializeComponent();
 
-            maps = storage.RestoreObject<List<Map>>("Resources/data");
+            _parentForm = parentForm;
+            _settings = settings;
+            _maps = maps;
 
             _mapId = mapId;
             _corX = corX;
@@ -28,6 +35,40 @@ namespace Valkyrie.Loader
             _corZ = corZ;
 
             _placeName = placeName;
+
+            Theme = theme;
+            Style = color;
+
+            metroStyleManager.Theme = theme;
+            metroStyleManager.Style = color;
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            if (metroStyleManager.Theme == MetroThemeStyle.Light)
+            {
+                corXBox.BackColor = Color.White;
+                corXBox.ForeColor = Color.Black;
+
+                corYBox.BackColor = Color.White;
+                corYBox.ForeColor = Color.Black;
+
+                corZBox.BackColor = Color.White;
+                corZBox.ForeColor = Color.Black;
+
+                return;
+            }
+
+            corXBox.BackColor = Color.FromArgb(27, 27, 27);
+            corXBox.ForeColor = Color.Gainsboro;
+
+            corYBox.BackColor = Color.FromArgb(27, 27, 27);
+            corYBox.ForeColor = Color.Gainsboro;
+
+            corZBox.BackColor = Color.FromArgb(27, 27, 27);
+            corZBox.ForeColor = Color.Gainsboro;
         }
 
         private void FillCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -59,7 +100,7 @@ namespace Valkyrie.Loader
             }
 
             float[] coordinates = { (float)corXBox.Value, (float)corYBox.Value, (float)corZBox.Value };
-            var map = maps.FirstOrDefault(x => x.Id == _mapId);
+            var map = _maps.FirstOrDefault(x => x.Id == _mapId);
 
             if (map.ToString() == null)
             {
@@ -74,7 +115,7 @@ namespace Valkyrie.Loader
                     return;
                 }
 
-                var place = map.Places.Find(p => p.Name == nameBox.Text);       
+                var place = map.Places.Find(p => p.Name == nameBox.Text);
                 var index = map.Places.IndexOf(place);
 
                 if (index == -1)
@@ -101,7 +142,7 @@ namespace Valkyrie.Loader
                 });
             }
 
-            storage.StoreObject(maps, "Resources/data");
+            _parentForm.Maps = _maps;
             Close();
         }
 

@@ -28,80 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaveCurrent));
-            this.okBtn = new System.Windows.Forms.Button();
-            this.cancelBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.nameBox = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
+            this.CancelBtn = new MetroFramework.Controls.MetroButton();
+            this.OkBtn = new MetroFramework.Controls.MetroButton();
+            this.nameBox = new MetroFramework.Controls.MetroTextBox();
+            this.metroStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).BeginInit();
             this.SuspendLayout();
             // 
-            // okBtn
+            // CancelBtn
             // 
-            this.okBtn.Location = new System.Drawing.Point(15, 51);
-            this.okBtn.Name = "okBtn";
-            this.okBtn.Size = new System.Drawing.Size(75, 23);
-            this.okBtn.TabIndex = 0;
-            this.okBtn.Text = "OK";
-            this.okBtn.UseVisualStyleBackColor = true;
-            this.okBtn.Click += new System.EventHandler(this.OkBtn_Click);
+            this.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelBtn.Location = new System.Drawing.Point(122, 92);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.CancelBtn.TabIndex = 8;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.UseSelectable = true;
             // 
-            // cancelBtn
+            // OkBtn
             // 
-            this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelBtn.Location = new System.Drawing.Point(107, 51);
-            this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
-            this.cancelBtn.TabIndex = 1;
-            this.cancelBtn.Text = "Cancel";
-            this.cancelBtn.UseVisualStyleBackColor = true;
-            this.cancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Name";
+            this.OkBtn.Location = new System.Drawing.Point(23, 92);
+            this.OkBtn.Name = "OkBtn";
+            this.OkBtn.Size = new System.Drawing.Size(75, 23);
+            this.OkBtn.TabIndex = 7;
+            this.OkBtn.Text = "OK";
+            this.OkBtn.UseSelectable = true;
+            this.OkBtn.Click += new System.EventHandler(this.OkBtn_Click);
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(15, 25);
+            // 
+            // 
+            // 
+            this.nameBox.CustomButton.Image = null;
+            this.nameBox.CustomButton.Location = new System.Drawing.Point(152, 1);
+            this.nameBox.CustomButton.Name = "";
+            this.nameBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.nameBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.nameBox.CustomButton.TabIndex = 1;
+            this.nameBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.nameBox.CustomButton.UseSelectable = true;
+            this.nameBox.CustomButton.Visible = false;
+            this.nameBox.Lines = new string[0];
+            this.nameBox.Location = new System.Drawing.Point(23, 63);
+            this.nameBox.MaxLength = 32767;
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(167, 20);
-            this.nameBox.TabIndex = 3;
+            this.nameBox.PasswordChar = '\0';
+            this.nameBox.WaterMark = "Name";
+            this.nameBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.nameBox.SelectedText = "";
+            this.nameBox.SelectionLength = 0;
+            this.nameBox.SelectionStart = 0;
+            this.nameBox.ShortcutsEnabled = true;
+            this.nameBox.Size = new System.Drawing.Size(174, 23);
+            this.nameBox.TabIndex = 6;
+            this.nameBox.UseSelectable = true;
+            this.nameBox.WaterMark = "Name";
+            this.nameBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.nameBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroStyleManager
+            // 
+            this.metroStyleManager.Owner = this;
             // 
             // SaveCurrent
             // 
-            this.AcceptButton = this.okBtn;
+            this.AcceptButton = this.OkBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancelBtn;
-            this.ClientSize = new System.Drawing.Size(194, 82);
+            this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
+            this.CancelButton = this.CancelBtn;
+            this.ClientSize = new System.Drawing.Size(220, 150);
+            this.Controls.Add(this.CancelBtn);
+            this.Controls.Add(this.OkBtn);
             this.Controls.Add(this.nameBox);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cancelBtn);
-            this.Controls.Add(this.okBtn);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SaveCurrent";
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "New coordinate";
-            this.TopMost = true;
+            this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.None;
+            this.Style = MetroFramework.MetroColorStyle.Default;
+            this.Text = "SaveCurrent";
+            this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Center;
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button okBtn;
-        private System.Windows.Forms.Button cancelBtn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox nameBox;
+        private MetroFramework.Controls.MetroButton CancelBtn;
+        private MetroFramework.Controls.MetroButton OkBtn;
+        private MetroFramework.Controls.MetroTextBox nameBox;
+        private MetroFramework.Components.MetroStyleManager metroStyleManager;
     }
 }

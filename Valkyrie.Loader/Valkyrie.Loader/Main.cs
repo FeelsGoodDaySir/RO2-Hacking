@@ -8,55 +8,106 @@ using System.Windows.Forms;
 using System.Linq;
 using MetroFramework;
 using Valkyrie.Core;
+using Valkyrie.Loader.Utils;
+using System.Runtime.InteropServices;
+using System.IO;
+using System.Net;
 
 namespace Valkyrie.Loader
 {
     public partial class Main : MetroForm
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
+        private static extern IntPtr GetForegroundWindow();
+
+        [DllImport("User32.dll")]
+        private static extern short GetAsyncKeyState(Keys key);
+
+        private readonly string _LOADER_VERSION = "2.0.0 [PUBLIC]";
+
+        private readonly string configPath = "Resources/config.json";
+        private readonly string dataPath = "Resources/data.json";
+
         private Engine engine = new Engine();
-        private JsonStorage storage = new JsonStorage();
+        private Storage storage = new Storage();
 
-        private List<Map> maps = new List<Map>();
-
-        private MetroStyle metroStyle = new MetroStyle();
-
+        public List<Map> Maps { get; set; }
+        public Settings Settings { get; set; }
+  
+        private Process currentProcess;
         bool openProc = false;
 
+        private float movementSpeed;
         private float savedX, savedY, savedZ;
 
-        int nextStyle;
+        private int nextStyle;
 
         public Main()
         {
             InitializeComponent();
+            InitializeMainForm();
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        private void InitializeMainForm()
         {
-            try
+            if (!File.Exists(configPath))
             {
-                maps = storage.RestoreObject<List<Map>>("Resources/data");
-                metroStyle = storage.RestoreObject<MetroStyle>("Resources/config");
-
-                Theme = (MetroThemeStyle)metroStyle.Theme;
-                Style = (MetroColorStyle)metroStyle.Color;
+                Utilities.GenerateConfigFile();
             }
-            catch (Exception)
+
+            if (!File.Exists(dataPath))
             {
-                maps = storage.RestoreObject<List<Map>>("Resources/template");
-                storage.StoreObject(maps, "Resources/data");
-
-                Theme = MetroThemeStyle.Dark;
-                Style = MetroColorStyle.Pink;
+                Utilities.GenerateDataFile();
             }
+
+            Maps = storage.RestoreObject<List<Map>>("Resources/data");
+            Settings = storage.RestoreObject<Settings>("Resources/config");
+
+            // [24-02-2019] This Loader update needs to reset the previous 
+            // version of the config file to enable the hotkeys feature.
+            if (Settings.KeyBinding == null)
+            {
+                Utilities.GenerateConfigFile();
+                Settings = storage.RestoreObject<Settings>("Resources/config");
+            }
+
+            Theme = (MetroThemeStyle)Settings.MetroStyle.Theme;
+            Style = (MetroColorStyle)Settings.MetroStyle.Color;
+
+            metroStyleManager.Theme = (MetroThemeStyle)Settings.MetroStyle.Theme;
+            metroStyleManager.Style = (MetroColorStyle)Settings.MetroStyle.Color;
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            RefreshTheme();
+            RefreshHotKeys();
 
             coreVersionLabel.Text = engine.GetCoreVersion();
             gameVersionLabel.Text = engine.GetCompatibleVersion();
+            loaderVersionLabel.Text = _LOADER_VERSION;
 
-            metroStyleManager.Theme = Theme;
-            metroStyleManager.Style = Style;
+            base.OnLoad(e);
 
-            UpdateControlsToTheme();
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    client.DownloadFile("https://raw.githubusercontent.com/madgwee/RO2-Hacking/master/Valkyrie.System/changelog.txt", "Changelog.txt");
+                    StreamReader sr = new StreamReader("Changelog.txt");
+
+                    string changelog = "";
+                    while (!sr.EndOfStream)
+                    {
+                        changelog += sr.ReadLine() + Environment.NewLine;
+                    }
+                    changelogBox.Text = changelog;
+                }
+            }
+            catch
+            {
+                changelogBox.Text = "Couldn't fetch the data.";
+            }
 
             if (!BackgroundWorker1.IsBusy)
             {
@@ -123,6 +174,11 @@ namespace Valkyrie.Loader
                 {
                     engine.Update();
 
+                    procBox.Invoke(new MethodInvoker(delegate
+                    {
+                        currentProcess = Process.GetProcessById(Convert.ToInt32(procBox.SelectedItem));
+                    }));
+
                     hpTitleLabel.Invoke((MethodInvoker)delegate
                     {
                         hpTitleLabel.Visible = true;
@@ -140,6 +196,36 @@ namespace Valkyrie.Loader
 
                     if (ImAlive())
                     {
+                        // Handle our Hotkey teleports
+                        IntPtr activatedHandle = GetForegroundWindow();
+                        if (activatedHandle == currentProcess.MainWindowHandle)
+                        {
+                            if (Convert.ToBoolean(GetAsyncKeyState(Settings.KeyBinding[0].Key)) && Settings.KeyBinding[0].Key != Keys.None && Settings.KeyBinding[0].Alias != "None")
+                                engine.TeleportHack(Settings.KeyBinding[0].Coordinates[0], Settings.KeyBinding[0].Coordinates[1], Settings.KeyBinding[0].Coordinates[2]);
+
+                            if (Convert.ToBoolean(GetAsyncKeyState(Settings.KeyBinding[1].Key)) && Settings.KeyBinding[1].Key != Keys.None && Settings.KeyBinding[1].Alias != "None")
+                                engine.TeleportHack(Settings.KeyBinding[1].Coordinates[0], Settings.KeyBinding[1].Coordinates[1], Settings.KeyBinding[1].Coordinates[2]);
+
+                            if (Convert.ToBoolean(GetAsyncKeyState(Settings.KeyBinding[2].Key)) && Settings.KeyBinding[2].Key != Keys.None && Settings.KeyBinding[2].Alias != "None")
+                                engine.TeleportHack(Settings.KeyBinding[2].Coordinates[0], Settings.KeyBinding[2].Coordinates[1], Settings.KeyBinding[2].Coordinates[2]);
+
+                            if (Convert.ToBoolean(GetAsyncKeyState(Settings.KeyBinding[3].Key)) && Settings.KeyBinding[3].Key != Keys.None && Settings.KeyBinding[3].Alias != "None")
+                                engine.TeleportHack(Settings.KeyBinding[3].Coordinates[0], Settings.KeyBinding[3].Coordinates[1], Settings.KeyBinding[3].Coordinates[2]);
+
+                            if (Convert.ToBoolean(GetAsyncKeyState(Settings.KeyBinding[4].Key)) && Settings.KeyBinding[4].Key != Keys.None && Settings.KeyBinding[4].Alias != "None")
+                                engine.TeleportHack(Settings.KeyBinding[4].Coordinates[0], Settings.KeyBinding[4].Coordinates[1], Settings.KeyBinding[4].Coordinates[2]);
+
+                            if (Convert.ToBoolean(GetAsyncKeyState(Settings.KeyBinding[5].Key)) && Settings.KeyBinding[5].Key != Keys.None && Settings.KeyBinding[5].Alias != "None")
+                                engine.TeleportHack(Settings.KeyBinding[5].Coordinates[0], Settings.KeyBinding[5].Coordinates[1], Settings.KeyBinding[5].Coordinates[2]);
+
+                            if (Convert.ToBoolean(GetAsyncKeyState(Settings.KeyBinding[6].Key)) && Settings.KeyBinding[6].Key != Keys.None && Settings.KeyBinding[6].Alias != "None")
+                                engine.TeleportHack(Settings.KeyBinding[6].Coordinates[0], Settings.KeyBinding[6].Coordinates[1], Settings.KeyBinding[6].Coordinates[2]);
+
+                            if (Convert.ToBoolean(GetAsyncKeyState(Settings.KeyBinding[7].Key)) && Settings.KeyBinding[7].Key != Keys.None && Settings.KeyBinding[7].Alias != "None")
+                                engine.TeleportHack(Settings.KeyBinding[7].Coordinates[0], Settings.KeyBinding[7].Coordinates[1], Settings.KeyBinding[7].Coordinates[2]);
+                        }
+
+                        // Update main tab labels
                         procStatusLabel.Invoke((MethodInvoker)delegate
                         {
                             injectionLoading.Visible = false;
@@ -162,7 +248,7 @@ namespace Valkyrie.Loader
                         mainMapLabel.Invoke((MethodInvoker)delegate
                         {
                             mainMapLabel.Visible = true;
-                            var nameToShow = maps.Where(m => m.Id == engine.GetMapInfo().Id).ToList();
+                            var nameToShow = Maps.Where(m => m.Id == engine.GetMapInfo().Id).ToList();
                             mainMapLabel.Text = engine.GetPlayerInfo().MovementSpeed == 0 ? "Loading..." : !nameToShow.Any() ? "Unknown map" : nameToShow[0].Name;
 
                         });
@@ -179,68 +265,78 @@ namespace Valkyrie.Loader
                             corZLabel.Text = engine.GetPlayerInfo().PosZ.ToString();
                         }));
 
+                        // Handle speed hack checkbox
                         if (movSpeedToggle.Checked)
                         {
+                            // Enable the speed hack box
                             movSpeedBox.Invoke(new MethodInvoker(delegate
                             {
                                 movSpeedBox.Enabled = true;
                             }));
 
-                            movSpeedStatusLabel.Invoke(new MethodInvoker(delegate
+                            // Handle speed hack
+                            bool speedInputValidation = float.TryParse(movSpeedBox.Text, out float speedHackTest);
+                            if (speedInputValidation)
                             {
-                                movSpeedStatusLabel.Visible = true;
-                            }));
+                                // Start the speed hack
+                                movementSpeed = float.Parse(movSpeedBox.Text);
+                                engine.Speedhack(movementSpeed);
 
-                            if (movSpeedBox.Text == "")
-                            {
-                                movSpeedBox.Invoke(new MethodInvoker(delegate
+                                // Show a success message to the user through a hidden label
+                                movSpeedStatusLabel.Invoke(new MethodInvoker(delegate
                                 {
-                                    movSpeedBox.Text = "0";
+                                    movSpeedStatusLabel.Visible = true;
                                 }));
                             }
-
-                            engine.Speedhack(float.Parse(movSpeedBox.Text));
                         }
                         else
                         {
+                            // Disable the speed hack box
                             movSpeedBox.Invoke(new MethodInvoker(delegate
                             {
                                 movSpeedBox.Enabled = false;
                             }));
 
+                            // Stop the speed hack and fill the box with the original player movement speed value
                             movSpeedBox.Invoke(new MethodInvoker(delegate
                             {
                                 movSpeedBox.Text = engine.GetPlayerInfo().MovementSpeed.ToString();
                             }));
 
+                            // Hide the success message
                             movSpeedStatusLabel.Invoke(new MethodInvoker(delegate
                             {
                                 movSpeedStatusLabel.Visible = false;
                             }));
                         }
 
+                        // Handle wall hack checkbox
                         if (wallToggle.Checked)
                         {
+                            // Start the wall friction hack
+                            engine.WallfrictionHack(0);
+
+                            // Show a success message to the user through a hidden label
                             wallFrictionLabel.Invoke(new MethodInvoker(delegate
                             {
                                 wallFrictionLabel.Visible = true;
                             }));
-
-                            engine.WallfrictionHack(0);
                         }
                         else
                         {
+                            // Stop the wall friction hack
+                            engine.WallfrictionHack(1);
+
+                            // Hide the success message
                             wallFrictionLabel.Invoke(new MethodInvoker(delegate
                             {
                                 wallFrictionLabel.Visible = false;
                             }));
-
-                            engine.WallfrictionHack(1);
                         }
 
                         mapLabel.Invoke((MethodInvoker)delegate
                         {
-                            var nameToShow = maps.Where(m => m.Id == engine.GetMapInfo().Id).ToList();
+                            var nameToShow = Maps.Where(m => m.Id == engine.GetMapInfo().Id).ToList();
 
                             if (engine.GetPlayerInfo().MovementSpeed == 0)
                             {
@@ -364,15 +460,13 @@ namespace Valkyrie.Loader
 
         private void RefreshPlaces()
         {
-            maps = storage.RestoreObject<List<Map>>("Resources/data");
-
             // Refresh Place box
 
             placeBox.Items.Clear();
             placeBox.ResetText();
             placeBox.Refresh();
 
-            foreach (var map in maps.Where(m => m.Id == engine.GetMapInfo().Id))
+            foreach (var map in Maps.Where(m => m.Id == engine.GetMapInfo().Id))
             {
                 if (map.Places == null)
                 {
@@ -391,7 +485,7 @@ namespace Valkyrie.Loader
             {
                 managePlacesBox.Items.Clear();
 
-                foreach (var map in maps.Where(m => m.Name == manageMapBox.Text))
+                foreach (var map in Maps.Where(m => m.Name == manageMapBox.Text))
                 {
                     if (map.Places == null)
                     {
@@ -412,7 +506,28 @@ namespace Valkyrie.Loader
             deletePlaceBtn.Enabled = false;
         }
 
-        private void UpdateControlsToTheme()
+        private void RefreshHotKeys()
+        {
+            teleportKey1Box.Text = Settings.KeyBinding[0].Key.ToString();
+            teleportKey2Box.Text = Settings.KeyBinding[1].Key.ToString();
+            teleportKey3Box.Text = Settings.KeyBinding[2].Key.ToString();
+            teleportKey4Box.Text = Settings.KeyBinding[3].Key.ToString();
+            teleportKey5Box.Text = Settings.KeyBinding[4].Key.ToString();
+            teleportKey6Box.Text = Settings.KeyBinding[5].Key.ToString();
+            teleportKey7Box.Text = Settings.KeyBinding[6].Key.ToString();
+            teleportKey8Box.Text = Settings.KeyBinding[7].Key.ToString();
+
+            teleportCors1Box.Text = Settings.KeyBinding[0].Alias;
+            teleportCors2Box.Text = Settings.KeyBinding[1].Alias;
+            teleportCors3Box.Text = Settings.KeyBinding[2].Alias;
+            teleportCors4Box.Text = Settings.KeyBinding[3].Alias;
+            teleportCors5Box.Text = Settings.KeyBinding[4].Alias;
+            teleportCors6Box.Text = Settings.KeyBinding[5].Alias;
+            teleportCors7Box.Text = Settings.KeyBinding[6].Alias;
+            teleportCors8Box.Text = Settings.KeyBinding[7].Alias;
+        }
+
+        private void RefreshTheme()
         {
             if (metroStyleManager.Theme == MetroThemeStyle.Light)
             {
@@ -433,10 +548,58 @@ namespace Valkyrie.Loader
 
                 outputBox.ForeColor = Color.DimGray;
 
-                title1.ForeColor = Color.DimGray;
-                title2.ForeColor = Color.DimGray;
-                title3.ForeColor = Color.DimGray;
-                title4.ForeColor = Color.DimGray;
+                title1.ForeColor = Color.Black;
+                title2.ForeColor = Color.Black;
+                title3.ForeColor = Color.Black;
+                title4.ForeColor = Color.Black;
+
+                teleportKey1Box.BackColor = Color.White;
+                teleportKey1Box.ForeColor = Color.Black;
+
+                teleportKey2Box.BackColor = Color.White;
+                teleportKey2Box.ForeColor = Color.Black;
+
+                teleportKey3Box.BackColor = Color.White;
+                teleportKey3Box.ForeColor = Color.Black;
+
+                teleportKey4Box.BackColor = Color.White;
+                teleportKey4Box.ForeColor = Color.Black;
+
+                teleportKey5Box.BackColor = Color.White;
+                teleportKey5Box.ForeColor = Color.Black;
+
+                teleportKey6Box.BackColor = Color.White;
+                teleportKey6Box.ForeColor = Color.Black;
+
+                teleportKey7Box.BackColor = Color.White;
+                teleportKey7Box.ForeColor = Color.Black;
+
+                teleportKey8Box.BackColor = Color.White;
+                teleportKey8Box.ForeColor = Color.Black;
+
+                teleportCors1Box.BackColor = Color.White;
+                teleportCors1Box.ForeColor = Color.Black;
+
+                teleportCors2Box.BackColor = Color.White;
+                teleportCors2Box.ForeColor = Color.Black;
+
+                teleportCors3Box.BackColor = Color.White;
+                teleportCors3Box.ForeColor = Color.Black;
+
+                teleportCors4Box.BackColor = Color.White;
+                teleportCors4Box.ForeColor = Color.Black;
+
+                teleportCors5Box.BackColor = Color.White;
+                teleportCors5Box.ForeColor = Color.Black;
+
+                teleportCors6Box.BackColor = Color.White;
+                teleportCors6Box.ForeColor = Color.Black;
+
+                teleportCors7Box.BackColor = Color.White;
+                teleportCors7Box.ForeColor = Color.Black;
+
+                teleportCors8Box.BackColor = Color.White;
+                teleportCors8Box.ForeColor = Color.Black;
 
                 return;
             }
@@ -462,6 +625,54 @@ namespace Valkyrie.Loader
             title4.ForeColor = Color.Gainsboro;
 
             outputBox.ForeColor = Color.Silver;
+
+            teleportKey1Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportKey1Box.ForeColor = Color.Gainsboro;
+
+            teleportKey2Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportKey2Box.ForeColor = Color.Gainsboro;
+
+            teleportKey3Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportKey3Box.ForeColor = Color.Gainsboro;
+
+            teleportKey4Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportKey4Box.ForeColor = Color.Gainsboro;
+
+            teleportKey5Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportKey5Box.ForeColor = Color.Gainsboro;
+
+            teleportKey6Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportKey6Box.ForeColor = Color.Gainsboro;
+
+            teleportKey7Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportKey7Box.ForeColor = Color.Gainsboro;
+
+            teleportKey8Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportKey8Box.ForeColor = Color.Gainsboro;
+
+            teleportCors1Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportCors1Box.ForeColor = Color.Gainsboro;
+
+            teleportCors2Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportCors2Box.ForeColor = Color.Gainsboro;
+
+            teleportCors3Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportCors3Box.ForeColor = Color.Gainsboro;
+
+            teleportCors4Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportCors4Box.ForeColor = Color.Gainsboro;
+
+            teleportCors5Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportCors5Box.ForeColor = Color.Gainsboro;
+
+            teleportCors6Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportCors6Box.ForeColor = Color.Gainsboro;
+
+            teleportCors7Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportCors7Box.ForeColor = Color.Gainsboro;
+
+            teleportCors8Box.BackColor = Color.FromArgb(27, 27, 27);
+            teleportCors8Box.ForeColor = Color.Gainsboro;
 
             if (nextStyle != 2)
             {
@@ -527,7 +738,7 @@ namespace Valkyrie.Loader
                 return;
             }
 
-            var addForm = new SaveCurrent(engine.GetMapInfo().Id, engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
+            var addForm = new SaveCurrent(this, Settings, metroStyleManager.Theme, metroStyleManager.Style, Maps, engine.GetMapInfo().Id, engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
             addForm.ShowDialog();
             RefreshPlaces();
         }
@@ -547,7 +758,7 @@ namespace Valkyrie.Loader
 
                 Console.WriteLine(engine.GetMapInfo().Name);
 
-                var map = maps.Find(m => m.Id == engine.GetMapInfo().Id);
+                var map = Maps.Find(m => m.Id == engine.GetMapInfo().Id);
 
                 if (map.Places == null)
                 {
@@ -600,7 +811,7 @@ namespace Valkyrie.Loader
 
             float[] coordinates = { };
 
-            foreach (var maps in maps.Where(m => m.Id == engine.GetMapInfo().Id).ToList())
+            foreach (var maps in Maps.Where(m => m.Id == engine.GetMapInfo().Id).ToList())
             {
                 foreach (var element in maps.Places.Where(p => p.Name == placeBox.Text))
                 {
@@ -629,6 +840,83 @@ namespace Valkyrie.Loader
         #endregion
 
         #region Manage
+
+        private void ZoneBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (fieldRadioBtn.Checked)
+            {
+                manageMapBox.Items.Clear();
+
+                foreach (var map in Maps.Where(m => m.Zone == zoneBox.SelectedItem.ToString() && m.Category == "Field"))
+                {
+                    manageMapBox.Items.Add(map.Name);
+                }
+            }
+
+            if (dungeonRadioBtn.Checked)
+            {
+                manageMapBox.Items.Clear();
+
+                foreach (var map in Maps.Where(m => m.Zone == zoneBox.SelectedItem.ToString() && m.Category == "Dungeon"))
+                {
+                    manageMapBox.Items.Add(map.Name);
+                }
+            }
+        }
+
+        private void CityRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fieldRadioBtn.Checked)
+            {
+                manageMapBox.Items.Clear();
+
+                if (zoneBox.SelectedItem == null)
+                {
+                    return;
+                }
+
+                foreach (var map in Maps.Where(m => m.Category == "Field" && m.Zone == zoneBox.SelectedItem.ToString()))
+                {
+                    manageMapBox.Items.Add(map.Name);
+                }
+            }
+        }
+
+        private void ZoneRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fieldRadioBtn.Checked)
+            {
+                manageMapBox.Items.Clear();
+
+                if (zoneBox.SelectedItem == null)
+                {
+                    return;
+                }
+
+                foreach (var map in Maps.Where(m => m.Category == "Field" && m.Zone == zoneBox.SelectedItem.ToString()))
+                {
+                    manageMapBox.Items.Add(map.Name);
+                }
+            }
+        }
+
+        private void DungeonRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dungeonRadioBtn.Checked)
+            {
+                manageMapBox.Items.Clear();
+
+                if (zoneBox.SelectedItem == null)
+                {
+                    return;
+                }
+
+                foreach (var map in Maps.Where(m => m.Category == "Dungeon" && m.Zone == zoneBox.SelectedItem.ToString()))
+                {
+                    manageMapBox.Items.Add(map.Name);
+                }
+            }
+        }
 
         private void ManagePlacesBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -662,14 +950,14 @@ namespace Valkyrie.Loader
 
         private void AddPlaceBtn_Click(object sender, EventArgs e)
         {
-            var map = maps.Find(m => m.Name == manageMapBox.Text);
+            var map = Maps.Find(m => m.Name == manageMapBox.Text);
 
             if (map.Id == 0)
             {
                 return;
             }
 
-            var addplaceForm = new AddPlace(map.Id, "", engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
+            var addplaceForm = new AddPlace(this, Settings, metroStyleManager.Theme, metroStyleManager.Style, Maps, map.Id, "", engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
             addplaceForm.ShowDialog();
             RefreshPlaces();
         }
@@ -683,13 +971,13 @@ namespace Valkyrie.Loader
 
             float[] coordiantes;
 
-            var map = maps.Find(m => m.Name == manageMapBox.Text);
+            var map = Maps.Find(m => m.Name == manageMapBox.Text);
 
             var place = map.Places.Find(p => p.Name == managePlacesBox.SelectedItem.ToString());
 
             coordiantes = place.Coordinates;
 
-            var editForm = new EditPlace(map.Id, managePlacesBox.SelectedItem.ToString(), coordiantes, engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
+            var editForm = new EditPlace(this, Settings, metroStyleManager.Theme, metroStyleManager.Style, Maps, map.Id, managePlacesBox.SelectedItem.ToString(), coordiantes, engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
             editForm.ShowDialog();
             RefreshPlaces();
         }
@@ -703,13 +991,13 @@ namespace Valkyrie.Loader
 
             float[] coordiantes;
 
-            var map = maps.Find(m => m.Name == manageMapBox.Text);
+            var map = Maps.Find(m => m.Name == manageMapBox.Text);
 
             var place = map.Places.Find(p => p.Name == managePlacesBox.SelectedItem.ToString());
 
             coordiantes = place.Coordinates;
 
-            var editForm = new EditPlace(map.Id, managePlacesBox.SelectedItem.ToString(), coordiantes, engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
+            var editForm = new EditPlace(this, Settings, metroStyleManager.Theme, metroStyleManager.Style, Maps, map.Id, managePlacesBox.SelectedItem.ToString(), coordiantes, engine.GetPlayerInfo().PosX, engine.GetPlayerInfo().PosY, engine.GetPlayerInfo().PosZ);
             editForm.ShowDialog();
             RefreshPlaces();
         }
@@ -726,7 +1014,7 @@ namespace Valkyrie.Loader
                 return;
             }
 
-            var map = maps.FirstOrDefault(x => x.Name == manageMapBox.Text);
+            var map = Maps.FirstOrDefault(x => x.Name == manageMapBox.Text);
 
             if (map.ToString() == null)
             {
@@ -736,8 +1024,105 @@ namespace Valkyrie.Loader
 
             map.Places.RemoveAll(p => p.Name == managePlacesBox.SelectedItem.ToString());
 
-            storage.StoreObject(maps, "Resources/data");
             RefreshPlaces();
+        }
+
+        #endregion
+
+        #region Hotkeys
+
+        private void SaveHotKey(int id)
+        {
+            AddKey addKey = new AddKey(this, Settings, metroStyleManager.Theme, metroStyleManager.Style, id);
+            addKey.ShowDialog();
+            RefreshHotKeys();
+        }
+
+        private void SaveTeleportHotKey(int id)
+        {
+            HotKeyTeleport hotKeyTeleport = new HotKeyTeleport(this, Settings, Maps, id, metroStyleManager.Theme, metroStyleManager.Style);
+            hotKeyTeleport.ShowDialog();
+            RefreshHotKeys();
+        }
+
+        private void TeleportKey1Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveHotKey(1);
+        }
+
+        private void TeleportKey2Box_DoubleClick(object sender, EventArgs e)
+        {   
+            SaveHotKey(2);
+        }
+
+        private void TeleportKey3Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveHotKey(3);
+        }
+
+        private void TeleportKey4Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveHotKey(4);
+        }
+
+        private void TeleportKey5Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveHotKey(5);
+        }
+
+        private void TeleportKey6Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveHotKey(6);
+        }
+
+        private void TeleportKey7Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveHotKey(7);
+        }
+
+        private void TeleportKey8Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveHotKey(8);
+        }
+
+        private void TeleportCors1Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveTeleportHotKey(1);
+        }
+
+        private void TeleportCors2Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveTeleportHotKey(2);
+        }
+
+        private void TeleportCors3Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveTeleportHotKey(3);
+        }
+
+        private void TeleportCors4Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveTeleportHotKey(4);
+        }
+
+        private void TeleportCors5Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveTeleportHotKey(5);
+        }
+
+        private void TeleportCors6Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveTeleportHotKey(6);
+        }
+
+        private void TeleportCors7Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveTeleportHotKey(7);
+        }
+
+        private void TeleportCors8Box_DoubleClick(object sender, EventArgs e)
+        {
+            SaveTeleportHotKey(8);
         }
 
         #endregion
@@ -749,7 +1134,7 @@ namespace Valkyrie.Loader
             Theme = metroStyleManager.Theme == MetroThemeStyle.Light ? MetroThemeStyle.Dark : MetroThemeStyle.Light;
             metroStyleManager.Theme = Theme;
 
-            UpdateControlsToTheme();
+            RefreshTheme();
         }
 
         private void MetroTileSwitch_Click(object sender, EventArgs e)
@@ -759,84 +1144,7 @@ namespace Valkyrie.Loader
             Style = (MetroColorStyle)nextStyle;
             metroStyleManager.Style = Style;
 
-            UpdateControlsToTheme();
-        }
-
-        private void ZoneBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (fieldRadioBtn.Checked)
-            {
-                manageMapBox.Items.Clear();
-
-                foreach (var map in maps.Where(m => m.Zone == zoneBox.SelectedItem.ToString() && m.Category == "Field"))
-                {
-                    manageMapBox.Items.Add(map.Name);
-                }
-            }
-
-            if (dungeonRadioBtn.Checked)
-            {
-                manageMapBox.Items.Clear();
-
-                foreach (var map in maps.Where(m => m.Zone == zoneBox.SelectedItem.ToString() && m.Category == "Dungeon"))
-                {
-                    manageMapBox.Items.Add(map.Name);
-                }
-            }
-        }
-
-        private void CityRadioBtn_CheckedChanged(object sender, EventArgs e)
-        {
-            if (fieldRadioBtn.Checked)
-            {
-                manageMapBox.Items.Clear();
-
-                if (zoneBox.SelectedItem == null)
-                {
-                    return;
-                }
-
-                foreach (var map in maps.Where(m => m.Category == "Field" && m.Zone == zoneBox.SelectedItem.ToString()))
-                {
-                    manageMapBox.Items.Add(map.Name);
-                }
-            }
-        }
-
-        private void ZoneRadioBtn_CheckedChanged(object sender, EventArgs e)
-        {
-            if (fieldRadioBtn.Checked)
-            {
-                manageMapBox.Items.Clear();
-
-                if (zoneBox.SelectedItem == null)
-                {
-                    return;
-                }
-
-                foreach (var map in maps.Where(m => m.Category == "Field" && m.Zone == zoneBox.SelectedItem.ToString()))
-                {
-                    manageMapBox.Items.Add(map.Name);
-                }
-            }
-        }
-
-        private void DungeonRadioBtn_CheckedChanged(object sender, EventArgs e)
-        {
-            if (dungeonRadioBtn.Checked)
-            {
-                manageMapBox.Items.Clear();
-
-                if (zoneBox.SelectedItem == null)
-                {
-                    return;
-                }
-
-                foreach (var map in maps.Where(m => m.Category == "Dungeon" && m.Zone == zoneBox.SelectedItem.ToString()))
-                {
-                    manageMapBox.Items.Add(map.Name);
-                }
-            }
+            RefreshTheme();
         }
 
         private void GithubLink_Click(object sender, EventArgs e)
@@ -848,10 +1156,16 @@ namespace Valkyrie.Loader
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            metroStyle.Theme = (int)Theme;
-            metroStyle.Color = (int)Style;
+            MetroStyle metroStyle = new MetroStyle
+            {
+                Theme = (int)Theme,
+                Color = (int)Style
+            };
 
-            storage.StoreObject(metroStyle, "Resources/config");
+            Settings.MetroStyle = metroStyle;
+
+            storage.StoreObject(Settings, "Resources/config");
+            storage.StoreObject(Maps, "Resources/data");
 
             engine.Close();
             Environment.Exit(0);

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Valkyrie.Loader
 {
-    public class JsonStorage
+    public class Storage
     {
         public T RestoreObject<T>(string key)
         {

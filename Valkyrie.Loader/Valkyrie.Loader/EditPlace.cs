@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;   
+﻿using MetroFramework;
+using MetroFramework.Forms;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Valkyrie.Core;
 
 namespace Valkyrie.Loader
 {
-    public partial class EditPlace : Form
+    public partial class EditPlace : MetroForm
     {
-        private JsonStorage storage = new JsonStorage();
-        private List<Map> maps = new List<Map>();
+        private Main _parentForm;
+        private List<Map> _maps;
 
         private int _mapId;
         private float _corX, _corY, _corZ;
@@ -17,11 +20,13 @@ namespace Valkyrie.Loader
 
         private string _placeName;
 
-        public EditPlace(int mapId, string placeName, float[] placeCoordinates, float corX, float corY, float corZ)
+        public EditPlace(Main parentForm, Settings settings, MetroThemeStyle theme, MetroColorStyle color, 
+            List<Map> maps, int mapId, string placeName, float[] placeCoordinates, float corX, float corY, float corZ)
         {
             InitializeComponent();
 
-            maps = storage.RestoreObject<List<Map>>("Resources/data");
+            _parentForm = parentForm;
+            _maps = maps;
 
             _mapId = mapId;
             _corX = corX;
@@ -30,16 +35,46 @@ namespace Valkyrie.Loader
 
             _placeName = placeName;
             _placeCoordinates = placeCoordinates;
+
+            Theme = theme;
+            Style = color;
+
+            metroStyleManager.Theme = theme;
+            metroStyleManager.Style = color;
         }
 
-
-        private void EditPlace_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
+            base.OnLoad(e);
+
             nameBox.Text = _placeName;
 
             corXBox.Value = (decimal)_placeCoordinates[0];
             corYBox.Value = (decimal)_placeCoordinates[1];
             corZBox.Value = (decimal)_placeCoordinates[2];
+
+            if (metroStyleManager.Theme == MetroThemeStyle.Light)
+            {
+                corXBox.BackColor = Color.White;
+                corXBox.ForeColor = Color.Black;
+
+                corYBox.BackColor = Color.White;
+                corYBox.ForeColor = Color.Black;
+
+                corZBox.BackColor = Color.White;
+                corZBox.ForeColor = Color.Black;
+
+                return;
+            }
+
+            corXBox.BackColor = Color.FromArgb(27, 27, 27);
+            corXBox.ForeColor = Color.Gainsboro;
+
+            corYBox.BackColor = Color.FromArgb(27, 27, 27);
+            corYBox.ForeColor = Color.Gainsboro;
+
+            corZBox.BackColor = Color.FromArgb(27, 27, 27);
+            corZBox.ForeColor = Color.Gainsboro;
         }
 
         private void FillCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -71,7 +106,7 @@ namespace Valkyrie.Loader
             }
 
             float[] coordinates = { (float)corXBox.Value, (float)corYBox.Value, (float)corZBox.Value };
-            var map = maps.FirstOrDefault(x => x.Id == _mapId);
+            var map = _maps.FirstOrDefault(x => x.Id == _mapId);
             var place = map.Places.Find(p => p.Name == _placeName);
 
             if (map.ToString() == null || place.ToString() == null)
@@ -96,11 +131,11 @@ namespace Valkyrie.Loader
 
             map.Places[index] = newPlace;
 
-            storage.StoreObject(maps, "Resources/data");
+            _parentForm.Maps = _maps;
             Close();
         }
 
-        private void cancelBtn_Click(object sender, EventArgs e)
+        private void CancelBtn_Click(object sender, EventArgs e)
         {
             Close();
         }

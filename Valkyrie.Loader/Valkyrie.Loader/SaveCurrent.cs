@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MetroFramework;
+using MetroFramework.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -6,24 +8,32 @@ using Valkyrie.Core;
 
 namespace Valkyrie.Loader
 {
-    public partial class SaveCurrent : Form
+    public partial class SaveCurrent : MetroForm
     {
-        private JsonStorage storage = new JsonStorage();
-        private List<Map> maps = new List<Map>();
+        private Main _parentForm;
+        private List<Map> _maps;
 
         private int _mapId;
         private float _corX, _corY, _corZ;
 
-        public SaveCurrent(int mapId, float corX, float corY, float corZ)
+        public SaveCurrent(Main parentForm, Settings settings, MetroThemeStyle theme, MetroColorStyle color,
+            List<Map> maps, int mapId, float corX, float corY, float corZ)
         {
             InitializeComponent();
 
-            maps = storage.RestoreObject<List<Map>>("Resources/data");
+            _parentForm = parentForm;
+            _maps = maps;
 
             _mapId = mapId;
             _corX = corX;
             _corY = corY;
             _corZ = corZ;
+
+            Theme = theme;
+            Style = color;
+
+            metroStyleManager.Theme = theme;
+            metroStyleManager.Style = color;
         }
 
         private void OkBtn_Click(object sender, EventArgs e)
@@ -35,7 +45,7 @@ namespace Valkyrie.Loader
             }
 
             float[] coordinates = { _corX, _corY, _corZ };
-            var map = maps.FirstOrDefault(x => x.Id == _mapId);
+            var map = _maps.FirstOrDefault(x => x.Id == _mapId);
 
             if (map.ToString() == null)
             {
@@ -77,7 +87,7 @@ namespace Valkyrie.Loader
                 });
             }
 
-            storage.StoreObject(maps, "Resources/data");
+            _parentForm.Maps = _maps;
             Close();
         }
 
