@@ -1,0 +1,13 @@
+[24-02-2019]
+Loader 2.0.0
+=> News:
++ Changelog added... wew
++ Hotkeys teleport added! - Now you can teleport to your favorite places using the keyboard.
++ Speed hack textbox now accept negative values (you walk backwards).
+=> Bugfixes:
+- Placing a negative or empty value causes the speed hack to stop working.
+
+[22-02-2019]
+Core 1.1.0
+=> News:
++ Refactoring of the core. The new Engine handle all the game info and cheats.
