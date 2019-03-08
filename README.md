@@ -2,7 +2,7 @@
 
 WarpPortal stopped the development of this game, so I am publishing my entire RO2 Hacking project here for the purpose of learning.
 
-This repository is a solid ground to start a Ragnarok Online 2 hack.
+This repository is a solid base to start any kind of MMORPG Trainer.
 
 Prerequisites:
 [.NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net471)
