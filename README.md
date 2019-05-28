@@ -1,8 +1,8 @@
 # RO2-Hacking
 
-WarpPortal stopped the development of this game, so I am publishing my entire RO2 Hacking project here for the purpose of learning.
+WarpPortal stopped the development of the game, so I am publishing my entire RO2 Hacking project here for the purpose of learning.
 
-This repository is a solid base to start any kind of MMORPG Trainer.
+This repository is a solid foundation to start any kind of MMORPG Trainer.
 
 Prerequisites:
 [.NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net471)
